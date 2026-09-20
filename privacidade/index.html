@@ -25,7 +25,8 @@
     <h1>Política de Privacidade</h1>
     <div class="meta">
       <span><strong>Aplicativo:</strong> PepDozy: GLP-1</span>
-      <span><strong>Última atualização:</strong> 17 de setembro de 2026</span>
+      <span><strong>Última atualização editorial:</strong> 19 de setembro de 2026</span>
+      <span><strong>Revisão material — consentimento versão 6:</strong> 17 de setembro de 2026</span>
     </div>
 
     <div class="notice">
@@ -40,7 +41,7 @@
     <p>Conforme as funções que o usuário escolher, o app pode guardar localmente:</p>
     <ul>
       <li>aplicações registradas, molécula, dose, data, horário, local, estoque e observações;</li>
-      <li>nome opcional, altura, peso, meta de peso e preferências;</li>
+      <li>nome opcional, idade, sexo, altura, peso, meta de peso, nível de atividade e preferências;</li>
       <li>água, exercícios, sintomas, refeições, nutrientes, alimentos próprios e metas nutricionais informadas;</li>
       <li>medições de glicemia informadas manualmente em mg/dL, obtidas em medidor externo, com data, horário e contexto opcional escrito pelo usuário;</li>
       <li>fotos de progresso salvas na pasta privada do app;</li>
@@ -49,7 +50,7 @@
       <li>peso lido do Apple Health, somente se o usuário ativar a integração e autorizar a leitura.</li>
     </ul>
     <p>O PepDozy não cria perfil publicitário, não vende dados e não disponibiliza esses registros ao desenvolvedor.</p>
-    <p>O diário de glicemia é opcional e seus registros ficam somente no aparelho. Ele não importa glicose do Apple Health nem recebe dados de sensores. O gráfico mostra os pontos registrados, e o resumo apresenta contagem, última medição, menor, maior e média aritmética dos valores informados. Essa média não representa a glicemia durante o dia inteiro, e ausência de registro não é zero. O app não mede glicose, não prevê valores, não reconstrói uma curva fisiológica, não classifica resultados, não diagnostica e não orienta tratamento.</p>
+    <p>O diário de glicemia é opcional e guarda medições informadas manualmente, obtidas em medidor externo, com data, horário e contexto opcional. Não importa glicose do Apple Health nem recebe dados de sensores. Os pontos representam as medições registradas. A linha é apenas uma ligação visual entre registros próximos do mesmo dia: não representa medições entre coletas, não reconstrói a metabolização individual e não prevê valores futuros. Dias diferentes, intervalos acima de 90 minutos e horários conflitantes permanecem sem ligação. O resumo descreve somente as medições consideradas na seleção; a média não representa a glicemia durante o dia inteiro e ausência de registro não é zero. O app não mede glicose, não classifica resultados, não diagnostica e não orienta tratamento.</p>
 
     <h2>3. Apple Health e permissões</h2>
     <p>A integração com o Apple Health vem desligada e, quando ativada, solicita somente leitura de peso. O PepDozy não escreve dados no Apple Health. A permissão pode ser retirada nos Ajustes do iOS.</p>
@@ -67,12 +68,13 @@
     <h2>6. Backups, relatórios e exportações</h2>
     <p>O PepDozy não envia arquivos automaticamente. Relatórios, planilhas, backups, fotos e diagnósticos só saem do app quando o usuário inicia a exportação e escolhe um destino na folha de compartilhamento do iOS.</p>
     <ul>
-      <li>O backup de registros pode ser exportado com proteção por senha. A senha não é armazenada e não pode ser recuperada.</li>
+      <li>O backup de registros pode ser exportado com ou sem senha. Com senha, é cifrado no aparelho com AES-256-GCM, usando uma chave derivada da senha. A senha não é armazenada e não pode ser recuperada.</li>
+      <li>Sem senha, o backup é legível. PDF, CSV e ZIP de fotos não são criptografados pelo PepDozy. Guarde e compartilhe esses arquivos somente em destinos de sua confiança.</li>
       <li>As medições de glicemia manual, com data, horário e contexto, integram o backup de registros e, quando existirem medições realizadas válidas, a planilha <code>glicemia.csv</code> na exportação iniciada pelo usuário. A planilha é texto legível e não é criptografada pelo app.</li>
       <li>No PDF, a seção <strong>Glicemia registrada (mg/dL)</strong> vem <strong>desligada por padrão</strong> e só entra se o usuário a selecionar antes de exportar. Ela inclui as medições realizadas no período escolhido, com data, horário e contexto, e o resumo descritivo desses registros, sem interpretação clínica.</li>
-      <li>Fotos de progresso são exportadas separadamente e não fazem parte do backup de registros.</li>
-      <li>Pesos importados do Apple Health não entram no backup do PepDozy; no aparelho novo, retornam pela própria sincronização do Health, se ativada.</li>
-      <li>Depois de exportado, o arquivo passa a ser controlado pelo destino escolhido pelo usuário.</li>
+      <li>Os registros locais e a pasta das fotos de progresso são marcados para ficar fora do backup automático do iPhone. Para trocar de aparelho, gere o backup manual do PepDozy, exporte as fotos separadamente e confira os arquivos salvos. As fotos não integram o backup de registros.</li>
+      <li>Pesos importados do Apple Health não entram no backup do PepDozy. No outro aparelho, podem ser consultados novamente pela integração, se estiverem disponíveis e o usuário conceder a permissão correspondente.</li>
+      <li>Depois de exportada, a cópia é controlada pelo destino escolhido; sua exclusão deve ser feita nesse destino.</li>
     </ul>
 
     <h2 id="escolhas-de-privacidade">7. Acesso, correção, exportação e exclusão</h2>
@@ -81,11 +83,12 @@
     <p>Cópias que já tenham sido salvas fora do app devem ser apagadas diretamente no destino em que foram guardadas.</p>
 
     <h2>8. Este site</h2>
-    <p>Estas páginas são estáticas. Não possuem formulário, analytics, pixels, publicidade, cookies de rastreamento, login ou armazenamento de dados do visitante.</p>
+    <p>Estas páginas são estáticas. O PepDozy não incorpora nelas formulários, login, analytics, pixels, publicidade ou cookies de rastreamento. A hospedagem é fornecida pelo GitHub Pages, que registra e armazena endereços IP de visitantes para fins de segurança, inclusive quando o visitante não está conectado a uma conta GitHub. Esse tratamento técnico segue a <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">documentação</a> e a <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">Política de Privacidade do GitHub</a>. A visita a estas páginas não transmite os registros de saúde armazenados no aplicativo ao desenvolvedor.</p>
 
     <h2>9. Alterações desta política</h2>
     <p>Mudanças materiais sobre coleta, uso, retenção ou compartilhamento serão informadas no aplicativo e poderão exigir novo consentimento antes da continuidade do uso. Ajustes editoriais que não ampliem o tratamento serão registrados sem apagar dados existentes.</p>
     <p>A revisão de <strong>17 de setembro de 2026</strong> acrescenta o diário opcional de glicemia manual, sua persistência local e suas exportações. Nas versões do app que incluem esse diário, essa mudança material exige novo aceite, registrado localmente como <strong>consentimento versão 6</strong>, com a data da confirmação. Um aceite anterior não é promovido automaticamente: os avisos são apresentados novamente. O reaceite preserva os históricos, não repete o cadastro inicial e não cria medições de glicemia.</p>
+    <p>A revisão editorial de <strong>19 de setembro de 2026</strong> esclarece os campos de perfil já tratados no aparelho, a ligação visual do gráfico, a proteção das exportações e os registros técnicos da hospedagem. Ela não amplia os recursos, as permissões ou o tratamento de registros pelo app; a revisão material associada ao consentimento versão 6 permanece a de 17 de setembro de 2026.</p>
 
     <h2>10. Contato</h2>
     <p>Dúvidas sobre privacidade e suporte do aplicativo podem ser enviadas para <a href="mailto:cabralmoreirao23@icloud.com">cabralmoreirao23@icloud.com</a>.</p>
