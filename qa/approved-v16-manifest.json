@@ -128,16 +128,6 @@
       "sha256": "6257c805085e5834bb78e3ae4eebd2903ca62b75e81c4ef1b5dd71b3f7f1cc4e"
     },
     {
-      "file": "assets/images/pepdozy-v15/home-aplicacoes-decaimento-v15.png",
-      "bytes": 447620,
-      "sha256": "140340acf20f388319ee5951bd053213512782d2a554fa758baec77195bbf9ff"
-    },
-    {
-      "file": "assets/images/pepdozy-v15/home-aplicacoes-decaimento-v15.webp",
-      "bytes": 57944,
-      "sha256": "26f553fb67c86f4bfec6dce8929e7d8d59b5659670d92ca1819ec8fb893ec263"
-    },
-    {
       "file": "assets/images/pepdozy-v15/metas-v15.png",
       "bytes": 1239677,
       "sha256": "4e6a79cbe6c2c3389f0d54ec1739e58ced428fc69265d141e6f2bc2e42e2f5bc"
@@ -168,6 +158,16 @@
       "sha256": "e8ee0096913bb4debbf20dfa50728ea0ac0328b4e4faa96baa7bea1c4ea3745c"
     },
     {
+      "file": "assets/images/pepdozy-v16/home-aplicacoes-decaimento-v16.png",
+      "bytes": 482546,
+      "sha256": "677fb8c6e5d390391accc4b40eeaff83c3ee55e78446315144977bdab2ada34f"
+    },
+    {
+      "file": "assets/images/pepdozy-v16/home-aplicacoes-decaimento-v16.webp",
+      "bytes": 280946,
+      "sha256": "aebb7b06bc4c057485bcced67abcac5e210189782c05b1507d989c336de15bbb"
+    },
+    {
       "file": "assets/layout-v15.css",
       "bytes": 3756,
       "sha256": "973a877dce3baaf2448941d3711a4f5bd6e49b6401e603c440e3b34a0cbd8933"
@@ -190,7 +190,7 @@
     {
       "file": "index.html",
       "bytes": 5545,
-      "sha256": "6eea1a5e022e4f919bc215202b588e9c181d5e7d1483eec2ce6174fc8f0e76f4"
+      "sha256": "77ee5db8929f75c602822c2adeff06aee26f05fe5fcd5ba2592fc42153219914"
     },
     {
       "file": "privacidade/index.html",
@@ -207,5 +207,9 @@
       "bytes": 9053,
       "sha256": "6f2ae863596f15b4ae5a8f440afb4e183b95f640d35b0b574b15d4b5b1e8f34f"
     }
-  ]
+  ],
+  "correction": {
+    "date": "2026-09-22",
+    "scope": "Resumo da ilustração da Home: 12 → 100, coerente com a legenda 100 aplicações. Correção autorizada pelo OWNER."
+  }
 }
