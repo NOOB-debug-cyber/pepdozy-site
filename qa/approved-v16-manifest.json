@@ -1,0 +1,211 @@
+{
+  "version": "V16",
+  "approvedOn": "2026-09-22",
+  "files": [
+    {
+      "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
+      "bytes": 8986,
+      "sha256": "a9eafd0c227f5fb60c7a569c6cfea6f9ffd6967b32fc2be47553fb1ad3e7c59f"
+    },
+    {
+      "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.png",
+      "bytes": 110036,
+      "sha256": "607486c1f51230fc1c53a8400bf0a09b647dcbc63efd69e622e39d431ac738e0"
+    },
+    {
+      "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.webp",
+      "bytes": 12700,
+      "sha256": "249fe07d103e684354209178ac9e1b0cd84d6dfeced1e22b3744aa955f56560d"
+    },
+    {
+      "file": "assets/images/pepdozy-cards-v14/termos-sem-prescricao-v14.avif",
+      "bytes": 9986,
+      "sha256": "081fb067e4d844e07648ee174c684d942e44f6cce2fa4aacea2cb7ad50556d31"
+    },
+    {
+      "file": "assets/images/pepdozy-cards-v14/termos-sem-prescricao-v14.png",
+      "bytes": 113726,
+      "sha256": "15fe017f0568fce52920ff10b560c4d6a46372c78c4b87892dfb9b667102cb3e"
+    },
+    {
+      "file": "assets/images/pepdozy-cards-v14/termos-sem-prescricao-v14.webp",
+      "bytes": 14540,
+      "sha256": "b58dc7ef71fc9c4338181810cf85682ae960c4ce08557dddb1222a06bfa5f692"
+    },
+    {
+      "file": "assets/images/pepdozy-favicon.png",
+      "bytes": 22951,
+      "sha256": "92ee4e4e18291b9f671cffdc6472085126aa3ffe121ab134a17d9d1dfb5d5f0a"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-1086.avif",
+      "bytes": 423852,
+      "sha256": "831529ad7d751922bb5a0d3b9c912cc642e2c31746ea2e2b809d75cd544c835a"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-1086.png",
+      "bytes": 491427,
+      "sha256": "f0fa58623be167c8c08be2f801286174e50aff7a6c2d6e82dcfada1eaa995938"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-1086.webp",
+      "bytes": 336052,
+      "sha256": "cc59cd82fcb86c5b7e01b90f408d659d8f7d77745bb875bdbd33d5802d6bf5c0"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-543.avif",
+      "bytes": 142755,
+      "sha256": "a811b6539ab17f470e0c232ffc369de57c417ca27ff7130e90eaae6f50ef56d8"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-543.png",
+      "bytes": 160732,
+      "sha256": "e5b4ce599632a26cab0a6547db8f06c4f48c902d69727c6c4c5f8bad89e85e9a"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/privacidade-phones-v13-543.webp",
+      "bytes": 109860,
+      "sha256": "f4c6d607d58625a25ac0dac9b972f03b9f0239000d57df0e1e9f0c78b03fd23b"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-1086.avif",
+      "bytes": 431098,
+      "sha256": "aefbd6c88d9cde170a1b2702c5e8f7dd42ed16323360b7ddde4a7b91c8305842"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-1086.png",
+      "bytes": 518583,
+      "sha256": "82cf4ee3df679734ad1139bf281408c34eb64c635423b9047c7b7a274de78c31"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-1086.webp",
+      "bytes": 363494,
+      "sha256": "3ec446eb164763a77e73ea1422cd4e8fa8939f246349ea931efaf6c149ab1839"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-543.avif",
+      "bytes": 139691,
+      "sha256": "098f1b3baf9c2c35e35dd57326d5dfbc4e67c9351779b7ed2eec22f7c0b28d35"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-543.png",
+      "bytes": 162405,
+      "sha256": "08fb4c678ca6cc4dfd867e13394512ae4b1c886020727da46ed398fd361d0e6c"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/suporte-phones-v13-543.webp",
+      "bytes": 114310,
+      "sha256": "61e5864f1c467e6aa7306b455050000a81fc9ac6ae0240a88c587def2e9c1282"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-1086.avif",
+      "bytes": 438952,
+      "sha256": "07bb690e81209d3b4f48f9c3682bdfff9355829f70c65b157750bccd79d987ba"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-1086.png",
+      "bytes": 507296,
+      "sha256": "1c55540f8185eb80bb4b6d883897e062be3fe297279f58a22941b33a5c8573c8"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-1086.webp",
+      "bytes": 331870,
+      "sha256": "5fb75ffba08bb63967ab145a68942c9f9b0f90275d60c70b516dc21ae6b57bc7"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-543.avif",
+      "bytes": 140787,
+      "sha256": "99901051b5842b30ba89b428bff769a6489a21709d81f8a87e5eb7d81112d3db"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-543.png",
+      "bytes": 161713,
+      "sha256": "f75ae421eaee5c26f30cc400a7e52d7a861ddae372614db9e19afa9618a9d0a6"
+    },
+    {
+      "file": "assets/images/pepdozy-phones-v13/uso-licenca-phones-v13-543.webp",
+      "bytes": 103938,
+      "sha256": "6257c805085e5834bb78e3ae4eebd2903ca62b75e81c4ef1b5dd71b3f7f1cc4e"
+    },
+    {
+      "file": "assets/images/pepdozy-v15/home-aplicacoes-decaimento-v15.png",
+      "bytes": 447620,
+      "sha256": "140340acf20f388319ee5951bd053213512782d2a554fa758baec77195bbf9ff"
+    },
+    {
+      "file": "assets/images/pepdozy-v15/home-aplicacoes-decaimento-v15.webp",
+      "bytes": 57944,
+      "sha256": "26f553fb67c86f4bfec6dce8929e7d8d59b5659670d92ca1819ec8fb893ec263"
+    },
+    {
+      "file": "assets/images/pepdozy-v15/metas-v15.png",
+      "bytes": 1239677,
+      "sha256": "4e6a79cbe6c2c3389f0d54ec1739e58ced428fc69265d141e6f2bc2e42e2f5bc"
+    },
+    {
+      "file": "assets/images/pepdozy-v15/metas-v15.webp",
+      "bytes": 116714,
+      "sha256": "ef0ed43e2c4af3c79caf12e99ac9603536a114ddfdcf184926d11cfc8ddc8a35"
+    },
+    {
+      "file": "assets/images/pepdozy-v16/aplicacoes-organizadas-v16.png",
+      "bytes": 1418256,
+      "sha256": "ec9180c59fed6841d91617b1c36c5676f7e688757bab0270e5247e2114498ce1"
+    },
+    {
+      "file": "assets/images/pepdozy-v16/aplicacoes-organizadas-v16.webp",
+      "bytes": 130052,
+      "sha256": "31ff44ae487b0ef4eba31aa396b7a1f850528b68bd392fb3e28fbb38e95f95de"
+    },
+    {
+      "file": "assets/images/pepdozy-v16/atividade-consistencia-v16.png",
+      "bytes": 1264249,
+      "sha256": "d34a25a5ed5451716d7c28890b9a7774738758a07dc61f33117e5143afab29b5"
+    },
+    {
+      "file": "assets/images/pepdozy-v16/atividade-consistencia-v16.webp",
+      "bytes": 138986,
+      "sha256": "e8ee0096913bb4debbf20dfa50728ea0ac0328b4e4faa96baa7bea1c4ea3745c"
+    },
+    {
+      "file": "assets/layout-v15.css",
+      "bytes": 3756,
+      "sha256": "973a877dce3baaf2448941d3711a4f5bd6e49b6401e603c440e3b34a0cbd8933"
+    },
+    {
+      "file": "assets/layout-v16.css",
+      "bytes": 996,
+      "sha256": "241747d8eca7212101077a5220c0c13ce677c473ed19b5f444096c1564a46f45"
+    },
+    {
+      "file": "assets/styles.css",
+      "bytes": 6837,
+      "sha256": "5f8915b29bcc5d2c7048ffb60298d20e590a3ce823952b83b74bc26c55946155"
+    },
+    {
+      "file": "assets/theme-v15.css",
+      "bytes": 2829,
+      "sha256": "6bc2605a84a2ac9550db353c8c3cff298424ed5ffbda7c10871e7abb9f3ba177"
+    },
+    {
+      "file": "index.html",
+      "bytes": 5545,
+      "sha256": "6eea1a5e022e4f919bc215202b588e9c181d5e7d1483eec2ce6174fc8f0e76f4"
+    },
+    {
+      "file": "privacidade/index.html",
+      "bytes": 14494,
+      "sha256": "79680cf5cb41cc70ffadd824ef3b5462dc56a05bb4666e2a64f7c43cecd5f131"
+    },
+    {
+      "file": "suporte/index.html",
+      "bytes": 7249,
+      "sha256": "1ebb303aa83c82dd7fe56b8a0acddc6c4372a4cda986850e744cdf5d6a57b0fa"
+    },
+    {
+      "file": "termos/index.html",
+      "bytes": 9053,
+      "sha256": "6f2ae863596f15b4ae5a8f440afb4e183b95f640d35b0b574b15d4b5b1e8f34f"
+    }
+  ]
+}

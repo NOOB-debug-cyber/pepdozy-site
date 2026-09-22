@@ -1,0 +1,121 @@
+/* Explicit page themes keep the PepDozy palette stable across OS settings. */
+body.theme-dark {
+  color-scheme: dark;
+  --bg: #080d1d;
+  --surface: #11182c;
+  --surface-strong: #18213a;
+  --text: #f7f8ff;
+  --body-text: #dce1ef;
+  --muted: #b7bfd3;
+  --line: #2d3855;
+  --primary: #9188ff;
+  --accent: #24c8c3;
+  --warning: #ffd08a;
+  --focus: #24c8c3;
+  --link: #b7b1ff;
+  --link-hover: #d8d4ff;
+  --meta-bg: #11182c;
+}
+
+body.theme-light,
+body:is(.theme-dark, .theme-light) .card--light {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-strong: #f3f1ff;
+  --text: #101629;
+  --body-text: #28334c;
+  --muted: #4d5872;
+  --line: #d7dced;
+  --primary: #5b3fd1;
+  --accent: #087f83;
+  --warning: #7a4d00;
+  --focus: #5b3fd1;
+  --link: #5b3fd1;
+  --link-hover: #432caa;
+  --meta-bg: #f3f1ff;
+}
+
+body:is(.theme-dark, .theme-light) {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body:is(.theme-dark, .theme-light) a {
+  color: var(--link);
+}
+
+body:is(.theme-dark, .theme-light) a:hover {
+  color: var(--link-hover);
+}
+
+body:is(.theme-dark, .theme-light) .brand,
+body:is(.theme-dark, .theme-light) .brand:hover {
+  color: var(--text);
+}
+
+body:is(.theme-dark, .theme-light) .brand span,
+body:is(.theme-dark, .theme-light) .eyebrow {
+  color: var(--accent);
+}
+
+body:is(.theme-dark, .theme-light) :is(.card, .notice) {
+  color: var(--text);
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+body:is(.theme-dark, .theme-light) .notice {
+  border-left-color: var(--accent);
+}
+
+body:is(.theme-dark, .theme-light) .notice.warning {
+  border-left-color: var(--warning);
+}
+
+body:is(.theme-dark, .theme-light) :where(.article p, .article li),
+body:is(.theme-dark, .theme-light) td {
+  color: var(--body-text);
+}
+
+body:is(.theme-dark, .theme-light) :is(h1, h2, h3, th),
+body:is(.theme-dark, .theme-light) .article strong {
+  color: var(--text);
+}
+
+body:is(.theme-dark, .theme-light) .article code {
+  color: var(--warning);
+}
+
+body:is(.theme-dark, .theme-light) .card p,
+body:is(.theme-dark, .theme-light) .lede,
+body:is(.theme-dark, .theme-light) .editorial-figure figcaption,
+body:is(.theme-dark, .theme-light) .site-footer,
+body:is(.theme-dark, .theme-light) .site-footer :is(p, li) {
+  color: var(--muted);
+}
+
+body:is(.theme-dark, .theme-light) .meta {
+  background: var(--meta-bg);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+body:is(.theme-dark, .theme-light) :is(th, td, .site-header, .site-footer) {
+  border-color: var(--line);
+}
+
+body:is(.theme-dark, .theme-light) :is(a, button):focus-visible {
+  outline-color: var(--focus);
+}
+
+body:is(.theme-dark, .theme-light) .skip-link,
+body:is(.theme-dark, .theme-light) .skip-link:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+body:is(.theme-dark, .theme-light) ::selection {
+  background: var(--primary);
+  color: var(--bg);
+}
