@@ -144,6 +144,96 @@ h3 { margin-top: 1.8rem; font-size: 1.25rem; }
   background: rgba(17, 24, 44, 0.75);
 }
 
+.hero--illustrated { max-width: none; }
+
+.hero__copy,
+.illustrated-block__copy { min-width: 0; }
+
+.illustrated-block { margin-top: 2.5rem; }
+.illustrated-block__copy > :first-child { margin-top: 0; }
+
+.editorial-figure {
+  width: min(100%, 27.5rem);
+  margin: 1.75rem auto 0;
+}
+
+.editorial-figure picture,
+.editorial-figure img { display: block; }
+
+.editorial-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.editorial-stage > picture { position: absolute; }
+
+.editorial-phones { inset: 0; }
+
+.editorial-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line);
+  border-radius: 1.125rem;
+  background: #080d1d;
+  box-shadow: 0 1.2rem 3rem rgba(0, 3, 12, 0.24);
+  object-fit: contain;
+}
+
+.editorial-figure--phones-only img {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.editorial-stage .editorial-phones img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.editorial-accent {
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.editorial-accent img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.editorial-accent--home {
+  bottom: 2.75%;
+  width: min(56%, 13.75rem);
+}
+
+.editorial-accent--privacidade {
+  bottom: 2.75%;
+  width: min(86%, 20rem);
+}
+
+.editorial-accent--suporte {
+  bottom: 4%;
+  width: min(87%, 19.5rem);
+}
+
+.editorial-accent--termos {
+  bottom: 3.5%;
+  width: min(87%, 20rem);
+}
+
+.editorial-figure figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -172,6 +262,28 @@ th { color: var(--text); }
   nav ul { justify-content: flex-start; }
   .grid { grid-template-columns: 1fr; }
   body { font-size: 1rem; }
+}
+
+@media (min-width: 64rem) {
+  .hero--illustrated,
+  .illustrated-block {
+    display: grid;
+    align-items: start;
+    gap: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .hero--illustrated {
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 27.5rem);
+  }
+
+  .illustrated-block {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 22.5rem);
+  }
+
+  .editorial-figure,
+  .article .editorial-figure { margin: 0; }
+
+  .article .editorial-figure { width: min(100%, 22.5rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {

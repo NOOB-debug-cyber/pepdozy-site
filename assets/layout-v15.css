@@ -1,0 +1,114 @@
+/* Layout da revisão solicitada: foco em aplicações, metas e cards contextuais. */
+.application-figure {
+  width: min(100%, 20rem);
+  margin: 2rem auto 0;
+}
+.application-figure picture,
+.application-figure img,
+.goal-card picture,
+.goal-card img { display: block; width: 100%; }
+.application-figure img { height: auto; max-height: 42rem; object-fit: contain; }
+.application-figure figcaption {
+  margin: .8rem 0 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.destination-grid .goal-card {
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 17rem);
+  margin: 0 auto;
+}
+.goal-card img { height: auto; }
+.destination { grid-row: 2; }
+.destination--privacy { grid-column: 1; }
+.destination--terms { grid-column: 2; }
+.destination--support { grid-column: 3; }
+.support-guidance {
+  --card-space: clamp(1rem, 2.5vw, 1.5rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-space);
+  padding: var(--card-space);
+  margin: 1.5rem 0 2.5rem;
+}
+.support-guidance__card {
+  --card-accent: #20d9ee;
+  display: grid;
+  grid-template-columns: clamp(3rem, 5.5vw, 4.5rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(.9rem, 2vw, 1.4rem);
+  min-width: 0;
+  min-height: 13rem;
+  padding: clamp(1.1rem, 2.5vw, 1.8rem);
+  border: 1px solid #3a527b;
+  border-radius: 1.4rem;
+  background: linear-gradient(145deg, #101c34, #080f21 78%);
+  box-shadow: inset 0 1px 0 #7185ba20;
+}
+.support-guidance__card--privacy { --card-accent: #c49aff; }
+.support-guidance__icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  color: var(--card-accent);
+  background: #101b304d;
+}
+.support-guidance__icon svg { display: block; width: 67%; height: 67%; }
+.support-guidance__text h2 {
+  margin: 0 0 .55rem;
+  color: #f7f8ff;
+  font-size: clamp(1.15rem, 1.65vw, 1.4rem);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.support-guidance__text p {
+  margin: 0;
+  color: #cbd1ed;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.5;
+}
+.context-note {
+  max-width: 25rem;
+  margin: 1.4rem 0 1.8rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-left: .25rem solid var(--accent);
+  border-radius: .9rem;
+  background: var(--surface);
+}
+.context-note h3 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--text); }
+.context-note p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--muted); }
+.context-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .7fr); gap: 1.5rem; align-items: start; }
+.context-row > p { margin-top: 0; }
+.context-row .context-note { margin: 0 0 1rem; }
+.page-support .editorial-figure { width: min(100%, 18rem); justify-self: center; }
+.page-support .editorial-stage { aspect-ratio: 582 / 765; overflow: hidden; }
+.page-support .editorial-phones { width: 186.6%; left: -81.1%; right: auto; top: -8.5%; bottom: auto; }
+.page-support .editorial-phones img { height: auto; }
+@media (min-width: 64rem) {
+  .hero--applications { grid-template-columns: minmax(0, 1.3fr) minmax(17rem, .7fr); align-items: center; }
+  .application-figure { margin-top: 0; }
+}
+@media (max-width: 48rem) {
+  .destination-grid { grid-template-columns: minmax(0, 1fr); }
+  .destination-grid .goal-card,
+  .destination { grid-column: 1; }
+  .goal-card { grid-row: 1 !important; }
+  .destination--privacy { grid-row: 2; }
+  .destination--terms { grid-row: 3; }
+  .destination--support { grid-row: 4; }
+  .support-guidance { grid-template-columns: minmax(0, 1fr); }
+  .context-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
