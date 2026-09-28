@@ -209,8 +209,8 @@
     },
     {
       "file": "termos/index.html",
-      "bytes": 14141,
-      "sha256": "d66923a5142481949684eba68e9ded2ec5c843175d2c27ab67905a7a8becbba2"
+      "bytes": 13919,
+      "sha256": "3d1cca49046bf38cd03cbf981ce597a17285bc715c4aa7581774d05662ad908a"
     }
   ],
   "correction": {
@@ -224,5 +224,9 @@
   "termsPaletteUpdate": {
     "date": "2026-09-28",
     "scope": "Somente Termos: blocos numerados alternam branco, lavanda e azul suaves da paleta Soft Spectrum V2 do app. Texto legal, aparelhos, card e demais páginas preservados; links sublinhados e foco visível."
+  },
+  "termsTrademarkEditorialUpdate": {
+    "date": "2026-09-28",
+    "scope": "A pedido expresso do OWNER, tópico 10 reduzido ao nome da marca e à identificação do pedido no INPI, sem data, frase de andamento ou parágrafo explicativo do símbolo. Mantida a referência a pedido, sem afirmar concessão. Restante do texto, paleta, imagens e outras páginas inalterados."
   }
 }

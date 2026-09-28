@@ -68,12 +68,13 @@ check(read('termos/index.html').includes('Não mede a concentração no sangue, 
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 
-// A adaptação cromática dos Termos não modifica texto, figuras ou outras páginas.
+// Conteúdo editorial autorizado em 28/09/2026, com ajuste delimitado do tópico 10.
+// Paleta, figuras e outras páginas permanecem preservadas.
 const terms = read('termos/index.html');
 const paletteCss = read('assets/terms-palette.css');
 const sha256 = text => crypto.createHash('sha256').update(text).digest('hex');
 const plainText = terms.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-check(sha256(plainText) === '20f0a0c0c8bef12ee868bc0bda27abd01f36ec0ba9d1736b82793df5feb86135', 'Texto dos Termos alterado durante ajuste de paleta');
+check(sha256(plainText) === 'de5194c358a4039ff528721a00941a2421e28c1fa4db1823864cc8a1e27f8c96', 'Texto dos Termos difere da versão editorial autorizada');
 check(sha256(terms.match(/<figure[\s\S]*?<\/figure>/)[0]) === 'cd1acfcd0ad332c7b2ef225f75a1b57dca0a1f7a8c7319ce302b55d5cd2a63c6', 'Aparelhos/card dos Termos alterados');
 check(terms.includes('assets/terms-palette.css'), 'Paleta dos Termos ausente');
 for (const route of routes.filter(file => file !== 'termos/index.html')) {
