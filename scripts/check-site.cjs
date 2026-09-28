@@ -67,4 +67,49 @@ check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidrata�
 check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
+
+// A adaptação cromática dos Termos não modifica texto, figuras ou outras páginas.
+const terms = read('termos/index.html');
+const paletteCss = read('assets/terms-palette.css');
+const sha256 = text => crypto.createHash('sha256').update(text).digest('hex');
+const plainText = terms.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+check(sha256(plainText) === '20f0a0c0c8bef12ee868bc0bda27abd01f36ec0ba9d1736b82793df5feb86135', 'Texto dos Termos alterado durante ajuste de paleta');
+check(sha256(terms.match(/<figure[\s\S]*?<\/figure>/)[0]) === 'cd1acfcd0ad332c7b2ef225f75a1b57dca0a1f7a8c7319ce302b55d5cd2a63c6', 'Aparelhos/card dos Termos alterados');
+check(terms.includes('assets/terms-palette.css'), 'Paleta dos Termos ausente');
+for (const route of routes.filter(file => file !== 'termos/index.html')) {
+  check(!read(route).includes('terms-palette.css'), `Paleta dos Termos vazou para ${route}`);
+}
+const chapterColors = [...terms.matchAll(/class="(?:notice )?terms-chapter terms-chapter--(\w+)"/g)].map(match => match[1]);
+check(JSON.stringify(chapterColors) === JSON.stringify(['neutral', 'lavender', 'blue', 'neutral', 'lavender', 'blue', 'neutral', 'lavender', 'blue', 'neutral']), 'Sequência dos dez blocos numerados');
+const cssWithoutComments = paletteCss.replace(/\/\*[\s\S]*?\*\//g, '');
+for (const match of cssWithoutComments.matchAll(/([^{}]+)\{/g)) {
+  check(/^body\.page-terms(?:\s|$)/.test(match[1].trim()), 'Seletor fora do escopo dos Termos');
+}
+check(paletteCss.includes('text-decoration-line: underline'), 'Links sem sublinhado');
+check(paletteCss.includes('a:focus-visible') && paletteCss.includes('outline: .2rem solid var(--focus)'), 'Foco visível ausente');
+const rule = selector => {
+  const start = paletteCss.indexOf(selector + ' {');
+  check(start !== -1, `Regra ausente: ${selector}`);
+  return paletteCss.slice(start, paletteCss.indexOf('}', start));
+};
+const color = (css, name) => {
+  const match = css.match(new RegExp(name + ':\\s*(#[0-9a-f]{6})', 'i'));
+  check(!!match, `Token ausente: ${name}`);
+  return match[1];
+};
+const base = rule('body.page-terms');
+const chapterRules = ['body.page-terms .terms-chapter', 'body.page-terms .terms-chapter--lavender', 'body.page-terms .terms-chapter--blue'].map(rule);
+const luminance = hex => {
+  const [r, g, b] = hex.slice(1).match(/../g).map(value => parseInt(value, 16) / 255)
+    .map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
+  return .2126 * r + .7152 * g + .0722 * b;
+};
+const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
+for (const chapter of chapterRules) {
+  const background = color(chapter, '--chapter-bg');
+  for (const token of ['--body-text', '--link', '--link-hover', '--focus']) {
+    check(contrast(color(base, token), background) >= 4.5, `Contraste insuficiente: ${token} sobre ${background}`);
+  }
+  check(contrast(color(chapter, '--chapter-heading'), background) >= 4.5, `Contraste do título sobre ${background}`);
+}
 console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos aprovados`);

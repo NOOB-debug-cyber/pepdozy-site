@@ -1,0 +1,62 @@
+/* Somente Termos: tokens Soft Spectrum V2 do app, com leitura sempre clara.
+   Cores complementam os números e títulos; não codificam avisos ou estados. */
+body.page-terms {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #101828;
+  --body-text: #344054;
+  --muted: #344054;
+  --line: #e4e7ec;
+  --primary: #4848bf;
+  --accent: #175e7c;
+  --focus: #4848bf;
+  --link: #4848bf;
+  --link-hover: #101828;
+  --meta-bg: #f7f8fc;
+}
+
+body.page-terms .terms-chapter {
+  --chapter-bg: #ffffff;
+  --chapter-heading: #101828;
+  --chapter-accent: #8c8ceb;
+  margin-block: 1.5rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-left: .25rem solid var(--chapter-accent);
+  border-radius: 1.25rem;
+  background: var(--chapter-bg);
+  color: var(--body-text);
+}
+
+body.page-terms .terms-chapter--lavender {
+  --chapter-bg: #eeeeff;
+  --chapter-heading: #4848bf;
+  --chapter-accent: #8c8ceb;
+}
+
+body.page-terms .terms-chapter--blue {
+  --chapter-bg: #e8f6fb;
+  --chapter-heading: #175e7c;
+  --chapter-accent: #53b9d9;
+}
+
+body.page-terms .terms-chapter > h2 {
+  color: var(--chapter-heading);
+  margin-top: 0;
+}
+
+body.page-terms .terms-chapter > :first-child { margin-top: 0; }
+body.page-terms .terms-chapter > :last-child { margin-bottom: 0; }
+body.page-terms .illustrated-block__copy > .terms-chapter:first-child { margin-top: 0; }
+
+body.page-terms a:not(.brand):not(.skip-link) {
+  text-decoration-line: underline;
+  text-underline-offset: .2em;
+  text-decoration-thickness: .08em;
+  overflow-wrap: anywhere;
+}
+
+body.page-terms a:focus-visible {
+  outline: .2rem solid var(--focus);
+  outline-offset: .2rem;
+}
