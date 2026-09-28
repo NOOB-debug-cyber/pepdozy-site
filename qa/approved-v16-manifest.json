@@ -204,12 +204,16 @@
     },
     {
       "file": "termos/index.html",
-      "bytes": 9053,
-      "sha256": "6f2ae863596f15b4ae5a8f440afb4e183b95f640d35b0b574b15d4b5b1e8f34f"
+      "bytes": 12958,
+      "sha256": "86c197483e9967675c89b31d5ab0d1d59377422526c6f3ac2d7be6464de74061"
     }
   ],
   "correction": {
     "date": "2026-09-22",
     "scope": "Resumo da ilustração da Home: 12 → 100, coerente com a legenda 100 aplicações. Correção autorizada pelo OWNER."
+  },
+  "editorialUpdate": {
+    "date": "2026-09-28",
+    "scope": "Termos de uso: conteúdo de funcionamento, assinaturas e cuidados com os dados. Preservados a composição V16, os arquivos visuais e as demais páginas."
   }
 }

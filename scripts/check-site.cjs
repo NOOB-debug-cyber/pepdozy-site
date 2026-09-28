@@ -64,7 +64,7 @@ check(!home.includes('class="goal-card"'), 'Meta antiga acima das tiles');
 check((home.match(/class="feature-card(?: |")/g) || []).length === 3, 'Quantidade de cards da Home');
 check(home.indexOf('class="feature-cards"') > home.indexOf('destination--terms'), 'Posição dos cards da Home');
 check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidratação reintroduzida em Uso e licença');
-check(read('termos/index.html').includes('Não são medições de sangue'), 'Limite de uso estimativo removido');
+check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos aprovados`);
