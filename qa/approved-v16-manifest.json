@@ -183,6 +183,11 @@
       "sha256": "5f8915b29bcc5d2c7048ffb60298d20e590a3ce823952b83b74bc26c55946155"
     },
     {
+      "file": "assets/terms-palette.css",
+      "bytes": 1631,
+      "sha256": "089460100019c38e3b2ec156d1e531d86d5ef5f8f355676d0a0df118ddf82f99"
+    },
+    {
       "file": "assets/theme-v15.css",
       "bytes": 2829,
       "sha256": "6bc2605a84a2ac9550db353c8c3cff298424ed5ffbda7c10871e7abb9f3ba177"
@@ -204,8 +209,8 @@
     },
     {
       "file": "termos/index.html",
-      "bytes": 12958,
-      "sha256": "86c197483e9967675c89b31d5ab0d1d59377422526c6f3ac2d7be6464de74061"
+      "bytes": 14141,
+      "sha256": "d66923a5142481949684eba68e9ded2ec5c843175d2c27ab67905a7a8becbba2"
     }
   ],
   "correction": {
@@ -215,5 +220,9 @@
   "editorialUpdate": {
     "date": "2026-09-28",
     "scope": "Termos de uso: conteúdo de funcionamento, assinaturas e cuidados com os dados. Preservados a composição V16, os arquivos visuais e as demais páginas."
+  },
+  "termsPaletteUpdate": {
+    "date": "2026-09-28",
+    "scope": "Somente Termos: blocos numerados alternam branco, lavanda e azul suaves da paleta Soft Spectrum V2 do app. Texto legal, aparelhos, card e demais páginas preservados; links sublinhados e foco visível."
   }
 }
