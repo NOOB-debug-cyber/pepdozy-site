@@ -1,0 +1,36 @@
+/* Acesso iOS na Home. Selo oficial Apple, íntegro, com respiro de 1/4 da altura. */
+body.page-home .app-download {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 0;
+  margin-block: 1rem;
+}
+
+body.page-home .app-store-badge {
+  display: inline-block;
+  flex: 0 0 auto;
+  padding: 12px;
+  border-radius: .75rem;
+  line-height: 0;
+  text-decoration: none;
+}
+
+body.page-home .app-store-badge img {
+  display: block;
+  height: 48px;
+  width: auto;
+  aspect-ratio: auto;
+}
+
+body.page-home .app-store-badge:focus-visible {
+  outline: .2rem solid var(--focus);
+  outline-offset: 0;
+}
+
+body.page-home .app-download__platform {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
