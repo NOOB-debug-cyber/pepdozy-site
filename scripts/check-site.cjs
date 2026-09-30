@@ -60,6 +60,21 @@ for (const file of routes) {
   console.log(`PASS ${file}: conteúdo, tema, logo, links e arquivos aprovados`);
 }
 const home = read('index.html');
+// Acesso iOS autorizado em 30/09/2026; ativação pública depende do download disponível.
+const appStoreUrl = 'https://apps.apple.com/br/app/id6804515774';
+check((home.match(/class="app-store-badge"/g) || []).length === 1, 'Um único selo App Store na Home');
+check(home.includes(`href="${appStoreUrl}"`), 'Destino App Store brasileiro incorreto');
+check(home.includes('aria-label="Baixar PepDozy™ na App Store para iPhone"'), 'Nome acessível do acesso iOS');
+check(home.includes('src="assets/images/app-store-badge-pt-br.svg"'), 'Selo oficial local ausente');
+check(!/play\.google\.com|Google Play|play-store-badge/.test(home), 'Android ainda não disponível: não anunciar Google Play');
+const downloadCss = read('assets/app-store.css');
+check(crypto.createHash('sha256').update(read('assets/images/app-store-badge-pt-br.svg')).digest('hex') === '0e9291a9c654e479762b75b51dd94a150af6fab76390a79cb2218cdc8f6cc893', 'Selo oficial Apple alterado');
+check(downloadCss.includes('height: 48px') && downloadCss.includes('width: auto'), 'Selo deve preservar proporção e altura legível');
+check(downloadCss.includes('padding: 12px'), 'Área livre do selo deve ter um quarto de sua altura');
+check(downloadCss.includes('.app-store-badge:focus-visible'), 'Acesso iOS precisa de foco visível');
+for (const route of routes.filter(file => file !== 'index.html')) {
+  check(!read(route).includes('app-store.css'), `CSS do acesso iOS fora da Home: ${route}`);
+}
 check(!home.includes('class="goal-card"'), 'Meta antiga acima das tiles');
 check((home.match(/class="feature-card(?: |")/g) || []).length === 3, 'Quantidade de cards da Home');
 check(home.indexOf('class="feature-cards"') > home.indexOf('destination--terms'), 'Posição dos cards da Home');

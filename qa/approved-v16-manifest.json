@@ -3,6 +3,16 @@
   "approvedOn": "2026-09-22",
   "files": [
     {
+      "file": "assets/app-store.css",
+      "bytes": 721,
+      "sha256": "7cc269fc9be231966fa65cc428616bcf743d7a376a2bb1743bf3e130b58d4ef5"
+    },
+    {
+      "file": "assets/images/app-store-badge-pt-br.svg",
+      "bytes": 9892,
+      "sha256": "0e9291a9c654e479762b75b51dd94a150af6fab76390a79cb2218cdc8f6cc893"
+    },
+    {
       "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
       "bytes": 8986,
       "sha256": "a9eafd0c227f5fb60c7a569c6cfea6f9ffd6967b32fc2be47553fb1ad3e7c59f"
@@ -194,8 +204,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 5545,
-      "sha256": "77ee5db8929f75c602822c2adeff06aee26f05fe5fcd5ba2592fc42153219914"
+      "bytes": 6043,
+      "sha256": "06e06282b986bb6d76a1c2aed6545d854338800a0376a1b7eb95338cb76a7527"
     },
     {
       "file": "privacidade/index.html",
@@ -213,6 +223,13 @@
       "sha256": "3d1cca49046bf38cd03cbf981ce597a17285bc715c4aa7581774d05662ad908a"
     }
   ],
+  "iosDownloadUpdate": {
+    "date": "2026-09-30",
+    "scope": "Acesso iOS autorizado pelo OWNER: um selo oficial da App Store em português, sem Google Play. Preservados os demais textos, páginas e imagens. Publicação condicionada à disponibilidade efetiva do aplicativo escolhido.",
+    "badgeSource": "https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/pt-br",
+    "badgeGuidelines": "https://developer.apple.com/app-store/marketing/guidelines/",
+    "destination": "https://apps.apple.com/br/app/id6804515774"
+  },
   "correction": {
     "date": "2026-09-22",
     "scope": "Resumo da ilustração da Home: 12 → 100, coerente com a legenda 100 aplicações. Correção autorizada pelo OWNER."
