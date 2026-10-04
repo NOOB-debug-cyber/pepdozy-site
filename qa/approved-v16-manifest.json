@@ -194,8 +194,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 5545,
-      "sha256": "77ee5db8929f75c602822c2adeff06aee26f05fe5fcd5ba2592fc42153219914"
+      "bytes": 5500,
+      "sha256": "52233741c2c10465286d0162b1e571f9758cd54e07d0ecc1656b0f658bdae1ba"
     },
     {
       "file": "privacidade/index.html",
@@ -204,8 +204,8 @@
     },
     {
       "file": "suporte/index.html",
-      "bytes": 7249,
-      "sha256": "1ebb303aa83c82dd7fe56b8a0acddc6c4372a4cda986850e744cdf5d6a57b0fa"
+      "bytes": 8115,
+      "sha256": "515cb4eedf6be1c304e9cc0b216f6784a445af208dfbbdf57986d832db49e91b"
     },
     {
       "file": "termos/index.html",
@@ -228,5 +228,15 @@
   "termsTrademarkEditorialUpdate": {
     "date": "2026-09-28",
     "scope": "A pedido expresso do OWNER, tópico 10 reduzido ao nome da marca e à identificação do pedido no INPI, sem data, frase de andamento ou parágrafo explicativo do símbolo. Mantida a referência a pedido, sem afirmar concessão. Restante do texto, paleta, imagens e outras páginas inalterados."
+  },
+  "editorialRevision": {
+    "baseCommit": "99b8d5f19882082963b58de3bdfc28f5a4274dd7",
+    "files": [
+      "index.html",
+      "suporte/index.html"
+    ],
+    "scope": "Aviso de pedido de marca alinhado aos Termos e orientações delimitadas de suporte a assinaturas.",
+    "visualAssets": "V16 preservada sem alterações de imagens ou estilos.",
+    "status": "Candidata pendente de revisão coordenada."
   }
 }
