@@ -174,8 +174,8 @@
     },
     {
       "file": "assets/layout-v16.css",
-      "bytes": 996,
-      "sha256": "241747d8eca7212101077a5220c0c13ce677c473ed19b5f444096c1564a46f45"
+      "bytes": 2791,
+      "sha256": "01f56538466bc8f4f73ef5c7d1377184bc0fa00a6198dba3bd3cf016ea3ee89c"
     },
     {
       "file": "assets/styles.css",
@@ -194,23 +194,23 @@
     },
     {
       "file": "index.html",
-      "bytes": 5500,
-      "sha256": "52233741c2c10465286d0162b1e571f9758cd54e07d0ecc1656b0f658bdae1ba"
+      "bytes": 7826,
+      "sha256": "5e5cf1bedb79ad96753d13763ad616aa71877ec27c48debe7056292e298ebaee"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 14494,
-      "sha256": "79680cf5cb41cc70ffadd824ef3b5462dc56a05bb4666e2a64f7c43cecd5f131"
+      "bytes": 14929,
+      "sha256": "15812dc9caa3b518463b2c530a9734613a542d76b99d871dd16477045d65d627"
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8115,
-      "sha256": "515cb4eedf6be1c304e9cc0b216f6784a445af208dfbbdf57986d832db49e91b"
+      "bytes": 8375,
+      "sha256": "d0c20e532495f5ed314604675ba9422606740b074225579dd92f3754c46fce8e"
     },
     {
       "file": "termos/index.html",
-      "bytes": 13919,
-      "sha256": "3d1cca49046bf38cd03cbf981ce597a17285bc715c4aa7581774d05662ad908a"
+      "bytes": 14662,
+      "sha256": "57427bd76e89e0afbfb045f76b45d0d2e219ef4fba2417d52665c0eca916519d"
     }
   ],
   "correction": {
@@ -238,5 +238,12 @@
     "scope": "Aviso de pedido de marca alinhado aos Termos e orientações delimitadas de suporte a assinaturas.",
     "visualAssets": "V16 preservada sem alterações de imagens ou estilos.",
     "status": "Candidata pendente de revisão coordenada."
+  },
+  "candidateEditorialRevision": {
+    "date": "2026-10-15",
+    "branch": "feat/historia-meu-diario-20261015",
+    "scope": "Home com proposta aprovada e história do criador; Meu Diário descrito como funcionalidade consolidada; proposta de atualização factual de Termos e Privacidade sobre armazenamento local, ausência de envio automático a serviços externos, compartilhamento a critério do usuário, revisão semanal, exportação seletiva e schema 7 verificado no app.",
+    "legalStatus": "Aprovada para integração; deploy condicionado à consolidação do Meu Diário no mesmo lote.",
+    "visualAssets": "Imagens V16 e páginas não relacionadas preservadas."
   }
 }

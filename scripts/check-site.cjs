@@ -68,14 +68,24 @@ check(read('termos/index.html').includes('Não mede a concentração no sangue, 
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 
-// Conteúdo editorial autorizado em 28/09/2026, com ajuste delimitado do tópico 10.
-// Paleta, figuras e outras páginas permanecem preservadas.
+// A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
+// verificam os fatos técnicos e os limites antes do deploy coordenado.
 const terms = read('termos/index.html');
 const paletteCss = read('assets/terms-palette.css');
 const sha256 = text => crypto.createHash('sha256').update(text).digest('hex');
-const plainText = terms.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-check(sha256(plainText) === 'de5194c358a4039ff528721a00941a2421e28c1fa4db1823864cc8a1e27f8c96', 'Texto dos Termos difere da versão editorial autorizada');
 check(sha256(terms.match(/<figure[\s\S]*?<\/figure>/)[0]) === 'cd1acfcd0ad332c7b2ef225f75a1b57dca0a1f7a8c7319ce302b55d5cd2a63c6', 'Aparelhos/card dos Termos alterados');
+check(home.includes('Sua jornada com GLP-1 merece ser vista por inteiro.'), 'Proposta principal ausente');
+check(home.includes('textos armazenados localmente no iPhone, sem envio automático a serviços externos'), 'Privacidade abrangente ausente na Home');
+check(!/em desenvolvimento|em testes|em breve|quando (?:o )?Meu Diário for/i.test(home + terms + read('privacidade/index.html')), 'Condicional de disponibilidade presente');
+check(terms.includes('somente os registros que você selecionar'), 'Exportação seletiva ausente nos Termos');
+check(read('privacidade/index.html').includes('schema') === false, 'Detalhe técnico de schema exposto ao público');
+check(read('privacidade/index.html').includes('somente os registros selecionados pelo usuário'), 'Exportação seletiva ausente na Privacidade');
+check(read('privacidade/index.html').includes('Os textos do Meu Diário são armazenados localmente no iPhone e não são enviados automaticamente a serviços externos. O compartilhamento fica a critério do usuário.'), 'Privacidade abrangente ausente na Política');
+check(read('privacidade/index.html').includes('A integração com o Apple Health solicita apenas permissão de leitura de peso e não escreve dados.'), 'Escopo do Apple Health ausente na Política');
+for (const file of routes) {
+  check(!read(file).includes('Registros e fotos ficam fora do backup automático do iPhone.'), `Parágrafo proibido presente: ${file}`);
+  check(!read(file).includes('Os registros locais e as fotos de progresso ficam fora do backup automático do iPhone.'), `Redação automática proibida presente: ${file}`);
+}
 check(terms.includes('assets/terms-palette.css'), 'Paleta dos Termos ausente');
 for (const route of routes.filter(file => file !== 'termos/index.html')) {
   check(!read(route).includes('terms-palette.css'), `Paleta dos Termos vazou para ${route}`);
