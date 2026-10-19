@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const assert = require('node:assert/strict');
 
 const root = path.resolve(__dirname, '..');
-const routes = ['index.html', 'privacidade/index.html', 'termos/index.html', 'suporte/index.html'];
+const routes = ['index.html', 'privacidade/index.html', 'termos/index.html', 'suporte/index.html', 'referencias/index.html'];
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const manifest = JSON.parse(read('qa/approved-v16-manifest.json'));
 const files = new Set(manifest.files.map(item => item.file));
@@ -67,6 +67,21 @@ check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidrata�
 check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
+const references = read('referencias/index.html');
+check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
+check(references.includes('Referências técnicas'), 'Título das Referências técnicas ausente');
+for (const anchor of ['curva-farmacocinetica', 'tirzepatida', 'semaglutida', 'dulaglutida', 'liraglutida', 'glicemia', 'nutricao', 'historico-de-revisoes']) {
+  check(references.includes(`id="${anchor}"`), `Âncora técnica ausente: ${anchor}`);
+}
+for (const study of ['SURMOUNT-1', 'STEP 1', 'REWIND', 'SCALE']) {
+  check(references.includes(study), `Estudo clínico contextual ausente: ${study}`);
+}
+for (const marker of ['bateman-sc-v2', '2026-08-04', '10.1007/BF02353538', '10.1002/psp4.13099', '10.1007/s13300-019-0581-y', '10.1007/s40262-015-0338-3', '10.1177/0091270009354996']) {
+  check(references.includes(marker), `Proveniência técnica ausente: ${marker}`);
+}
+check(references.includes('não validam individualmente a curva'), 'Separação clínica/PK ausente');
+check(references.includes('não é uma medição no organismo'), 'Limite essencial da curva ausente');
+check(references.includes('Para consultar a bula do seu medicamento, acesse o site do fabricante'), 'Orientação neutra de bula ausente');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
@@ -123,4 +138,4 @@ for (const chapter of chapterRules) {
   }
   check(contrast(color(chapter, '--chapter-heading'), background) >= 4.5, `Contraste do título sobre ${background}`);
 }
-console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos aprovados`);
+console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos inventariados na prévia`);
