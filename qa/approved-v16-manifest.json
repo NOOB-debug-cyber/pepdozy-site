@@ -1,6 +1,6 @@
 {
-  "version": "V16",
-  "approvedOn": "2026-09-22",
+  "version": "V17-preview-technical-references",
+  "approvedOn": null,
   "files": [
     {
       "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
@@ -178,6 +178,11 @@
       "sha256": "01f56538466bc8f4f73ef5c7d1377184bc0fa00a6198dba3bd3cf016ea3ee89c"
     },
     {
+      "file": "assets/references.css",
+      "bytes": 1762,
+      "sha256": "87bb3c1ea516562759e84a2248e672d29e9ae02eaa5de125fe08100e4f30b652"
+    },
+    {
       "file": "assets/styles.css",
       "bytes": 6837,
       "sha256": "5f8915b29bcc5d2c7048ffb60298d20e590a3ce823952b83b74bc26c55946155"
@@ -194,23 +199,28 @@
     },
     {
       "file": "index.html",
-      "bytes": 7826,
-      "sha256": "5e5cf1bedb79ad96753d13763ad616aa71877ec27c48debe7056292e298ebaee"
+      "bytes": 8289,
+      "sha256": "201013d0537e93d4bd1438bfcc841190d4cad8495d6f198dc8ae41897475db4a"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 14929,
-      "sha256": "15812dc9caa3b518463b2c530a9734613a542d76b99d871dd16477045d65d627"
+      "bytes": 15067,
+      "sha256": "4d4e96a27038bba38f613dcf442d250f6bf72f29aa3627a879a10ae88c464335"
+    },
+    {
+      "file": "referencias/index.html",
+      "bytes": 13806,
+      "sha256": "7a980ee194994232a0b1c03d34dcfdbe7eb353da3934c2592e4c0e2b504710ca"
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8375,
-      "sha256": "d0c20e532495f5ed314604675ba9422606740b074225579dd92f3754c46fce8e"
+      "bytes": 8513,
+      "sha256": "2ac240787ce55ba88d10d0028a547256ded36176bba89b466b0d36ceb6278b71"
     },
     {
       "file": "termos/index.html",
-      "bytes": 14662,
-      "sha256": "57427bd76e89e0afbfb045f76b45d0d2e219ef4fba2417d52665c0eca916519d"
+      "bytes": 14974,
+      "sha256": "59fef6738b27c121256028966ca432e21bc09b7c8b6a1e68240ad61567062aa6"
     }
   ],
   "correction": {
