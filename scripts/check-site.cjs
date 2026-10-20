@@ -72,6 +72,10 @@ check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidrata�
 check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
+for (const file of ['suporte/index.html', 'privacidade/index.html', 'termos/index.html']) {
+  check(read(file).includes('mailto:pepdozy@gmail.com'), `Contato oficial ausente: ${file}`);
+  check(!read(file).includes('cabralmoreirao23@icloud.com'), `Contato pessoal ainda presente: ${file}`);
+}
 const references = read('referencias/index.html');
 const curveSection = references.match(/<section class="reference-section" id="curva-farmacocinetica">([\s\S]*?)<\/section>/)[1];
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
