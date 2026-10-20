@@ -74,21 +74,29 @@ check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hos
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 const references = read('referencias/index.html');
 const curveSection = references.match(/<section class="reference-section" id="curva-farmacocinetica">([\s\S]*?)<\/section>/)[1];
-const medicinesSection = references.match(/<section class="reference-section" id="medicamentos">([\s\S]*?)<\/section>/)[1];
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
-check(references.includes('Referências técnicas'), 'Título das Referências técnicas ausente');
+check(references.includes('<h1>Estudos consolidados, fontes informativas e contextualizadas para agregar seu conhecimento</h1>'), 'Título principal das fontes ausente');
+check(!references.includes('class="reference-index"') && !references.includes('Nesta página'), 'Índice removido ainda presente');
 check(curveSection.includes('<h2>Curva estimada educativa</h2>'), 'Título compacto da curva ausente');
+check(curveSection.includes('<h3>Fundamentos matemáticos</h3>'), 'Subseção de fundamentos matemáticos ausente');
 check(!/class="equation"|class="technical-definitions"/.test(curveSection), 'Fórmula ou tabela técnica presente na caixa compacta');
 check(curveSection.includes('10.1007/BF02353538') && curveSection.includes('37594592'), 'Fontes Garrett e Weiss ausentes da caixa compacta');
-check(medicinesSection.includes('<h2>Estudos consolidados</h2>'), 'Título Estudos consolidados ausente');
-check(!medicinesSection.includes('<strong>Modelo:</strong>'), 'Descrição de modelo presente nos cartões das moléculas');
-check((medicinesSection.match(/<li><a [^>]+>[^<]+<\/a><\/li>/g) || []).length === 13, 'Os cartões devem conter somente os 13 links de fontes');
 for (const molecule of ['Tirzepatida', 'Semaglutida', 'Dulaglutida', 'Liraglutida']) {
-  check(medicinesSection.includes(`<h3>${molecule}</h3>`), `Molécula ausente: ${molecule}`);
+  const id = molecule.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const section = references.match(new RegExp(`<section class="reference-section" id="${id}">([\\s\\S]*?)<\\/section>`))[1];
+  check(section.includes(`<h2>${molecule}</h2>`), `Molécula ausente: ${molecule}`);
+  check(!section.includes('<p>') && !section.includes('<strong>Modelo:</strong>'), `Texto adicional presente em ${molecule}`);
 }
-check(references.includes('<a href="#glicemia">Diário de Glicemia</a>'), 'Índice do Diário de Glicemia ausente');
-check(references.includes('<h2>Diário de Glicemia</h2>'), 'Título Diário de Glicemia ausente');
-check(references.includes('Fontes Gerais para informações contextualizadas e agregar conhecimento'), 'Título das fontes contextuais ausente');
+const moleculeSources = ['tirzepatida', 'semaglutida', 'dulaglutida', 'liraglutida'].map(id => references.match(new RegExp(`<section class="reference-section" id="${id}">([\\s\\S]*?)<\\/section>`))[1]).join('');
+check((moleculeSources.match(/<li><a [^>]+>[^<]+<\/a><\/li>/g) || []).length === 13, 'As moléculas devem conter somente os 13 links de fontes');
+check(!references.includes('id="medicamentos"') && !references.includes('Medicamentos e fontes regulatórias'), 'Seção intermediária de medicamentos presente');
+check(references.includes('<h2>Diário de registros de glicemia</h2>'), 'Título do Diário de registros de glicemia ausente');
+check(!references.includes('Fontes Gerais para informações contextualizadas e agregar conhecimento'), 'Subtítulo removido das fontes de glicemia ainda presente');
+for (const id of ['nutricao', 'peso-metas-atividade']) {
+  const section = references.match(new RegExp(`<section class="reference-section" id="${id}">([\\s\\S]*?)<\\/section>`))[1];
+  check(!section.includes('<p>'), `Prosa descritiva presente em ${id}`);
+}
+check(references.includes('<h2>Peso, meta e atividade</h2>'), 'Título Peso, meta e atividade ausente');
 for (const anchor of ['curva-farmacocinetica', 'tirzepatida', 'semaglutida', 'dulaglutida', 'liraglutida', 'glicemia', 'nutricao', 'historico-de-revisoes']) {
   check(references.includes(`id="${anchor}"`), `Âncora técnica ausente: ${anchor}`);
 }
@@ -100,7 +108,6 @@ for (const marker of ['bateman-sc-v2', '2026-08-04', '10.1007/BF02353538', '10.1
 }
 check(references.includes('não validam individualmente a curva'), 'Separação clínica/PK ausente');
 check(/não é uma medição no organismo/i.test(curveSection), 'Limite essencial da curva ausente');
-check(references.includes('Para consultar a bula do seu medicamento, acesse o site do fabricante'), 'Orientação neutra de bula ausente');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
