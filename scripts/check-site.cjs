@@ -60,9 +60,14 @@ for (const file of routes) {
   console.log(`PASS ${file}: conteúdo, tema, logo, links e arquivos aprovados`);
 }
 const home = read('index.html');
+const homeLayout = read('assets/layout-v16.css');
 check(!home.includes('class="goal-card"'), 'Meta antiga acima das tiles');
 check((home.match(/class="feature-card(?: |")/g) || []).length === 3, 'Quantidade de cards da Home');
 check(home.indexOf('class="feature-cards"') > home.indexOf('destination--terms'), 'Posição dos cards da Home');
+check(homeLayout.includes('grid-template-columns: repeat(4, minmax(0, 1fr))'), 'Grade desktop dos destinos não possui quatro colunas iguais');
+for (const [name, column] of [['privacy', 1], ['terms', 2], ['references', 3], ['support', 4]]) {
+  check(homeLayout.includes(`.destination--${name} { grid-column: ${column}; grid-row: 1; }`), `Posição desktop divergente: ${name}`);
+}
 check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidratação reintroduzida em Uso e licença');
 check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');

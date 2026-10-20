@@ -2,7 +2,17 @@
 .brand { display: inline-flex; align-items: center; gap: .65rem; flex-shrink: 0; }
 .brand__logo { display: block; width: 2.6rem; height: 2.6rem; object-fit: contain; border-radius: .55rem; }
 body:is(.theme-dark,.theme-light) .brand .brand__name { color: var(--text); white-space: nowrap; }
-.destination { grid-row: 1; }
+.destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.destination {
+  grid-column: auto;
+  grid-row: auto;
+  min-width: 0;
+}
+.destination--privacy { grid-column: 1; grid-row: 1; }
+.destination--terms { grid-column: 2; grid-row: 1; }
+.destination--references { grid-column: 1; grid-row: 2; }
+.destination--support { grid-column: 2; grid-row: 2; }
+.destination :is(h2, p, a) { overflow-wrap: anywhere; }
 .feature-cards { display: flex; justify-content: space-evenly; align-items: center; margin: 2rem 0 0; }
 .feature-card { flex: 0 0 auto; width: clamp(10rem, 20vw, 13.125rem); margin: 0; }
 .feature-card picture, .feature-card img { display: block; width: 100%; height: auto; }
@@ -21,10 +31,21 @@ body:is(.theme-dark,.theme-light) .brand .brand__name { color: var(--text); whit
 .status-pill { display: inline-block; margin: 0 0 1rem; padding: .45rem .75rem; border-radius: 999px; font-size: .85rem; font-weight: 750; color: var(--text); background: color-mix(in srgb, var(--primary) 22%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent); }
 .journal-preview__points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 2rem; margin: 1.4rem 0 0; }
 .accessible-price { padding: 1.75rem clamp(1.25rem, 4vw, 2.5rem); border-left: .3rem solid var(--primary); background: color-mix(in srgb, var(--primary) 8%, var(--surface)); }
+
+@media (min-width: 64rem) {
+  .destination-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .destination--privacy { grid-column: 1; grid-row: 1; }
+  .destination--terms { grid-column: 2; grid-row: 1; }
+  .destination--references { grid-column: 3; grid-row: 1; }
+  .destination--support { grid-column: 4; grid-row: 1; }
+}
+
 @media (max-width: 48rem) {
-  .destination--privacy { grid-row: 1; }
-  .destination--terms { grid-row: 2; }
-  .destination--support { grid-row: 3; }
+  .destination-grid { grid-template-columns: minmax(0, 1fr); }
+  .destination--privacy { grid-column: 1; grid-row: 1; }
+  .destination--terms { grid-column: 1; grid-row: 2; }
+  .destination--references { grid-column: 1; grid-row: 3; }
+  .destination--support { grid-column: 1; grid-row: 4; }
   .feature-cards { flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
   .feature-card { width: 13.125rem; max-width: 100%; }
   .brand__logo { width: 2.25rem; height: 2.25rem; }
