@@ -204,8 +204,8 @@
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 14990,
-      "sha256": "44a70ce834088a031c642eda0398771e2f1bb76540ee60b8e7cd6c7d951330a3"
+      "bytes": 14970,
+      "sha256": "81efe87aa0d17ce72e5d70bea6c278111015b66e95396511e1a03e15a803cc6b"
     },
     {
       "file": "referencias/index.html",
@@ -214,13 +214,13 @@
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8589,
-      "sha256": "18ce935fc93c3e82d331127108339a647ad9c5bfcd3279245398bfe8db2bc32c"
+      "bytes": 8569,
+      "sha256": "ed0e2342dca2a4815e537fb3b3336e26d3a8e0d9d7e0ce7869cfef56b421be0d"
     },
     {
       "file": "termos/index.html",
-      "bytes": 15174,
-      "sha256": "722c9e7d512fc73d209e66d71ea56de9c41d3730985783b48f8ccbc2ac2d3a9b"
+      "bytes": 15154,
+      "sha256": "481570be52914ad1828166693d3ff35fe9345169a501e82e1e2ab6453041939b"
     }
   ],
   "correction": {
