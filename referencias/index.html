@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Referências técnicas, parâmetros e limites educativos das funções do PepDozy™: GLP-1.">
+  <meta name="description" content="Métodos, parâmetros, fontes e limites das estimativas educativas do PepDozy™, com informações sobre glicemia registrada, alimentação, peso e atividades.">
   <meta name="color-scheme" content="dark light">
   <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/pepdozy-favicon.png">
   <title>Referências técnicas — PepDozy™: GLP-1</title>
@@ -29,15 +29,15 @@
   <main id="conteudo" class="article references-article">
     <p class="eyebrow">Métodos, fontes e limites</p>
     <h1>Referências técnicas</h1>
-    <p class="lede">Esta página reúne a proveniência das funções educativas do PepDozy™. Ela explica o que o aplicativo calcula, quais parâmetros usa e o que os resultados não significam.</p>
+    <p class="lede">Esta página explica os métodos, parâmetros e fontes das estimativas educativas do PepDozy™, além dos limites de cada resultado apresentado.</p>
     <div class="notice">
-      <p><strong>O PepDozy™ registra, não recomenda.</strong> As informações abaixo não validam o resultado para uma pessoa, não orientam doses ou intervalos e não substituem avaliação, diagnóstico, prescrição ou atendimento profissional.</p>
+      <p>O aplicativo reúne registros pessoais e oferece visualizações educativas. Não recomenda medicamento, dose, intervalo ou mudança de tratamento. As fontes citadas não validam um resultado individual e não substituem avaliação, diagnóstico, prescrição ou atendimento profissional.</p>
     </div>
 
     <nav class="reference-index" aria-label="Índice das referências técnicas">
       <h2>Nesta página</h2>
       <ul>
-        <li><a href="#curva-farmacocinetica">Curva farmacocinética educativa</a></li>
+        <li><a href="#curva-farmacocinetica">Curva estimada educativa do medicamento</a></li>
         <li><a href="#medicamentos">Medicamentos e fontes regulatórias</a></li>
         <li><a href="#glicemia">Glicemia</a></li>
         <li><a href="#nutricao">Nutrição</a></li>
@@ -48,7 +48,7 @@
 
     <section class="reference-section" id="curva-farmacocinetica">
       <p class="eyebrow">Método matemático</p>
-      <h2>Curva farmacocinética educativa</h2>
+      <h2>Curva estimada educativa do medicamento</h2>
       <p>O modelo <strong>bateman-sc-v2</strong> (registro de parâmetros em <strong>2026-08-04</strong>) usa uma função de Bateman de um compartimento, com absorção e eliminação de primeira ordem:</p>
       <p class="equation" aria-label="A de t igual a F vezes D vezes k a, dividido por k a menos k e, vezes a diferença entre as exponenciais de menos k e t e menos k a t">A(t) = F × D × k<sub>a</sub>/(k<sub>a</sub> − k<sub>e</sub>) × (e<sup>−k<sub>e</sub>t</sup> − e<sup>−k<sub>a</sub>t</sup>)</p>
       <dl class="technical-definitions">
@@ -116,7 +116,11 @@
 
     <section class="reference-section" id="glicemia">
       <h2>Glicemia</h2>
-      <p>Cada ponto representa uma medição manual observada no horário informado. Pontos ausentes não são estimados nem ligados. As retas opcionais são regressões lineares descritivas separadas por contexto; não medem os intervalos e não preveem valores futuros. Os registros não estabelecem diagnóstico.</p>
+      <p>Cada ponto representa uma medição feita em aparelho externo e informada manualmente, com a data e o horário registrados. Os filtros e o histórico permitem consultar essas medições.</p>
+      <p>O gráfico mostra apenas os pontos das medições informadas.</p>
+      <p>O app não mede glicose, não classifica resultados, não estabelece diagnóstico e não orienta tratamento.</p>
+      <p>Os resumos descrevem somente as medições incluídas na seleção. Uma média dos registros não representa a glicemia durante o dia inteiro, e a ausência de uma medição não equivale a zero.</p>
+      <p>Fontes gerais sobre medições e diagnóstico, sem validação clínica do aplicativo:</p>
       <ul class="source-list">
         <li><a href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test">NIDDK — The A1C Test and Diabetes.</a></li>
         <li><a href="https://doi.org/10.2337/dc26-S002">American Diabetes Association — Diagnosis and Classification of Diabetes, 2026.</a></li>
