@@ -74,11 +74,21 @@ check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hos
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 const references = read('referencias/index.html');
 const curveSection = references.match(/<section class="reference-section" id="curva-farmacocinetica">([\s\S]*?)<\/section>/)[1];
+const medicinesSection = references.match(/<section class="reference-section" id="medicamentos">([\s\S]*?)<\/section>/)[1];
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
 check(references.includes('Referências técnicas'), 'Título das Referências técnicas ausente');
 check(curveSection.includes('<h2>Curva estimada educativa</h2>'), 'Título compacto da curva ausente');
 check(!/class="equation"|class="technical-definitions"/.test(curveSection), 'Fórmula ou tabela técnica presente na caixa compacta');
 check(curveSection.includes('10.1007/BF02353538') && curveSection.includes('37594592'), 'Fontes Garrett e Weiss ausentes da caixa compacta');
+check(medicinesSection.includes('<h2>Estudos consolidados</h2>'), 'Título Estudos consolidados ausente');
+check(!medicinesSection.includes('<strong>Modelo:</strong>'), 'Descrição de modelo presente nos cartões das moléculas');
+check((medicinesSection.match(/<li><a [^>]+>[^<]+<\/a><\/li>/g) || []).length === 13, 'Os cartões devem conter somente os 13 links de fontes');
+for (const molecule of ['Tirzepatida', 'Semaglutida', 'Dulaglutida', 'Liraglutida']) {
+  check(medicinesSection.includes(`<h3>${molecule}</h3>`), `Molécula ausente: ${molecule}`);
+}
+check(references.includes('<a href="#glicemia">Diário de Glicemia</a>'), 'Índice do Diário de Glicemia ausente');
+check(references.includes('<h2>Diário de Glicemia</h2>'), 'Título Diário de Glicemia ausente');
+check(references.includes('Fontes Gerais para informações contextualizadas e agregar conhecimento'), 'Título das fontes contextuais ausente');
 for (const anchor of ['curva-farmacocinetica', 'tirzepatida', 'semaglutida', 'dulaglutida', 'liraglutida', 'glicemia', 'nutricao', 'historico-de-revisoes']) {
   check(references.includes(`id="${anchor}"`), `Âncora técnica ausente: ${anchor}`);
 }
