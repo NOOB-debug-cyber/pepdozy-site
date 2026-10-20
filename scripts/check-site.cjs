@@ -73,8 +73,12 @@ check(read('termos/index.html').includes('Não mede a concentração no sangue, 
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 const references = read('referencias/index.html');
+const curveSection = references.match(/<section class="reference-section" id="curva-farmacocinetica">([\s\S]*?)<\/section>/)[1];
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
 check(references.includes('Referências técnicas'), 'Título das Referências técnicas ausente');
+check(curveSection.includes('<h2>Curva estimada educativa</h2>'), 'Título compacto da curva ausente');
+check(!/class="equation"|class="technical-definitions"/.test(curveSection), 'Fórmula ou tabela técnica presente na caixa compacta');
+check(curveSection.includes('10.1007/BF02353538') && curveSection.includes('37594592'), 'Fontes Garrett e Weiss ausentes da caixa compacta');
 for (const anchor of ['curva-farmacocinetica', 'tirzepatida', 'semaglutida', 'dulaglutida', 'liraglutida', 'glicemia', 'nutricao', 'historico-de-revisoes']) {
   check(references.includes(`id="${anchor}"`), `Âncora técnica ausente: ${anchor}`);
 }
@@ -85,7 +89,7 @@ for (const marker of ['bateman-sc-v2', '2026-08-04', '10.1007/BF02353538', '10.1
   check(references.includes(marker), `Proveniência técnica ausente: ${marker}`);
 }
 check(references.includes('não validam individualmente a curva'), 'Separação clínica/PK ausente');
-check(references.includes('não é uma medição no organismo'), 'Limite essencial da curva ausente');
+check(/não é uma medição no organismo/i.test(curveSection), 'Limite essencial da curva ausente');
 check(references.includes('Para consultar a bula do seu medicamento, acesse o site do fabricante'), 'Orientação neutra de bula ausente');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes

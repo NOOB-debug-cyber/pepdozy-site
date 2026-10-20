@@ -37,7 +37,7 @@
     <nav class="reference-index" aria-label="Índice das referências técnicas">
       <h2>Nesta página</h2>
       <ul>
-        <li><a href="#curva-farmacocinetica">Curva estimada educativa do medicamento</a></li>
+        <li><a href="#curva-farmacocinetica">Curva estimada educativa</a></li>
         <li><a href="#medicamentos">Medicamentos e fontes regulatórias</a></li>
         <li><a href="#glicemia">Glicemia</a></li>
         <li><a href="#nutricao">Nutrição</a></li>
@@ -47,18 +47,9 @@
     </nav>
 
     <section class="reference-section" id="curva-farmacocinetica">
-      <p class="eyebrow">Método matemático</p>
-      <h2>Curva estimada educativa do medicamento</h2>
-      <p>O modelo <strong>bateman-sc-v2</strong> (registro de parâmetros em <strong>2026-08-04</strong>) usa uma função de Bateman de um compartimento, com absorção e eliminação de primeira ordem:</p>
-      <p class="equation" aria-label="A de t igual a F vezes D vezes k a, dividido por k a menos k e, vezes a diferença entre as exponenciais de menos k e t e menos k a t">A(t) = F × D × k<sub>a</sub>/(k<sub>a</sub> − k<sub>e</sub>) × (e<sup>−k<sub>e</sub>t</sup> − e<sup>−k<sub>a</sub>t</sup>)</p>
-      <dl class="technical-definitions">
-        <div><dt>A(t)</dt><dd>quantidade, em mg, no compartimento sistêmico teórico do modelo no instante t;</dd></div>
-        <div><dt>F</dt><dd>biodisponibilidade média populacional usada pelo modelo;</dd></div>
-        <div><dt>D</dt><dd>dose registrada pela pessoa;</dd></div>
-        <div><dt>k<sub>a</sub> e k<sub>e</sub></dt><dd>constantes calculadas a partir das meias-vidas de absorção e eliminação.</dd></div>
-      </dl>
-      <p>O resultado não é uma medição no organismo, não é concentração no sangue, não representa todo o medicamento presente no corpo e não prevê intensidade de efeito. A meia-vida de absorção é uma <strong>calibração do aplicativo</strong> para aproximar o Tmax publicado; não é um valor diretamente fornecido pela literatura.</p>
-      <h3>Fundamento matemático</h3>
+      <p class="eyebrow">Método e fontes</p>
+      <h2>Curva estimada educativa</h2>
+      <p>A curva é uma estimativa educativa calculada a partir das aplicações informadas e dos parâmetros do modelo. Não é uma medição no organismo, não mede a concentração no sangue e não orienta dose, intervalo ou mudança de tratamento.</p>
       <ul class="source-list">
         <li><a href="https://doi.org/10.1007/BF02353538">Garrett ER. The Bateman function revisited. 1994. DOI 10.1007/BF02353538.</a></li>
         <li><a href="https://pubmed.ncbi.nlm.nih.gov/37594592/">Weiss M. Is the One-Compartment Model with First Order Absorption a Useful Approximation? 2023.</a> Discute limitações do modelo; não valida as curvas individuais do aplicativo.</li>
