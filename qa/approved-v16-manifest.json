@@ -199,28 +199,28 @@
     },
     {
       "file": "index.html",
-      "bytes": 8289,
-      "sha256": "201013d0537e93d4bd1438bfcc841190d4cad8495d6f198dc8ae41897475db4a"
+      "bytes": 10365,
+      "sha256": "f331b649e73c54baf4b02136d1526a7a8409a38e2493da5d87ab74a2073aa69e"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 15067,
-      "sha256": "4d4e96a27038bba38f613dcf442d250f6bf72f29aa3627a879a10ae88c464335"
+      "bytes": 14990,
+      "sha256": "44a70ce834088a031c642eda0398771e2f1bb76540ee60b8e7cd6c7d951330a3"
     },
     {
       "file": "referencias/index.html",
-      "bytes": 13806,
-      "sha256": "7a980ee194994232a0b1c03d34dcfdbe7eb353da3934c2592e4c0e2b504710ca"
+      "bytes": 14290,
+      "sha256": "9a762622b973f326e519c6906964fd08215ce72268ece875a737adbb4cd10dba"
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8513,
-      "sha256": "2ac240787ce55ba88d10d0028a547256ded36176bba89b466b0d36ceb6278b71"
+      "bytes": 8589,
+      "sha256": "18ce935fc93c3e82d331127108339a647ad9c5bfcd3279245398bfe8db2bc32c"
     },
     {
       "file": "termos/index.html",
-      "bytes": 14974,
-      "sha256": "59fef6738b27c121256028966ca432e21bc09b7c8b6a1e68240ad61567062aa6"
+      "bytes": 15174,
+      "sha256": "722c9e7d512fc73d209e66d71ea56de9c41d3730985783b48f8ccbc2ac2d3a9b"
     }
   ],
   "correction": {
