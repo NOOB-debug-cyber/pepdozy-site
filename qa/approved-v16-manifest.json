@@ -1,5 +1,5 @@
 {
-  "version": "V17-preview-technical-references",
+  "version": "V18-local-candidate-references-single-list",
   "approvedOn": null,
   "files": [
     {
@@ -179,8 +179,8 @@
     },
     {
       "file": "assets/references.css",
-      "bytes": 1762,
-      "sha256": "87bb3c1ea516562759e84a2248e672d29e9ae02eaa5de125fe08100e4f30b652"
+      "bytes": 994,
+      "sha256": "99ff6ed28eb9a00185e99b8375d4f6d639f3336478cbd4374f2571b89fd92f5b"
     },
     {
       "file": "assets/styles.css",
@@ -209,8 +209,8 @@
     },
     {
       "file": "referencias/index.html",
-      "bytes": 9893,
-      "sha256": "faeab45a76cdbe40365475f387bedfbc31dca801f11bf6ba94a607689ef87a42"
+      "bytes": 5144,
+      "sha256": "8208c4870002a61bd5d7a0c04ab0aa6731c4a96937c826f47015b49b40c4e545"
     },
     {
       "file": "suporte/index.html",
@@ -255,5 +255,16 @@
     "scope": "Home com proposta aprovada e história do criador; Meu Diário descrito como funcionalidade consolidada; proposta de atualização factual de Termos e Privacidade sobre armazenamento local, ausência de envio automático a serviços externos, compartilhamento a critério do usuário, revisão semanal, exportação seletiva e schema 7 verificado no app.",
     "legalStatus": "Aprovada para integração; deploy condicionado à consolidação do Meu Diário no mesmo lote.",
     "visualAssets": "Imagens V16 e páginas não relacionadas preservadas."
+  },
+  "status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+  "referencesListRevision": {
+    "date": "2026-10-22",
+    "baseCommit": "469df5a11ef8ab1f1d1c6dceb1af37b4bd67e431",
+    "scope": "Uma lista única com os 17 links informativos remanescentes, em lugar dos cartões e da prosa indicada. Exclusão editorial de 6 bulas FDA, 4 estudos de contexto e 1 notícia Anvisa; URLs e rótulos restantes preservados.",
+    "legacyAnchors": "IDs anteriores preservados discretamente na lista; acrescentado medicamentos para compatibilidade com o app.",
+    "introduction": "Descrição de biblioteca de fontes, sem afirmar alteração da versão pública do aplicativo.",
+    "visualAssets": "Sem alteração de imagens, fontes, identidade, header/footer ou outras páginas.",
+    "approvalStatus": "Candidata local; revisão e publicação não comprovadas por este manifesto.",
+    "publicationStatus": "NOT_PUBLISHED_BY_THIS_TASK"
   }
 }
