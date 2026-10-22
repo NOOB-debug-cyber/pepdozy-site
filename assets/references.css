@@ -1,5 +1,4 @@
 body.page-references .references-article { max-width: 72rem; }
-body.page-references .reference-index,
 body.page-references .reference-section {
   margin: 2rem 0;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -7,42 +6,24 @@ body.page-references .reference-section {
   border-radius: 1.25rem;
   background: rgba(255,255,255,.055);
 }
-body.page-references .reference-index ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: .75rem 1.5rem;
-  margin-bottom: 0;
+body.page-references .source-list {
+  display: block;
+  margin: 0;
+  padding-inline-start: 1.5rem;
 }
-body.page-references .reference-index a,
-body.page-references .source-list a { text-decoration-line: underline; text-underline-offset: .2em; }
-body.page-references .equation {
-  overflow-x: auto;
-  padding: 1rem;
-  border-radius: .75rem;
-  background: rgba(255,255,255,.08);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: clamp(.9rem, 2.5vw, 1.15rem);
+body.page-references .source-list li + li { margin-top: .5rem; }
+body.page-references .source-list a {
+  display: inline-block;
+  min-height: 2.75rem;
+  padding-block: .35rem;
+  overflow-wrap: anywhere;
+  text-decoration-line: underline;
+  text-underline-offset: .2em;
 }
-body.page-references .technical-definitions > div,
-body.page-references .revision-list > div {
-  display: grid;
-  grid-template-columns: minmax(7rem, 12rem) 1fr;
-  gap: 1rem;
-  padding: .65rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-body.page-references dt { font-weight: 700; }
-body.page-references dd { margin: 0; }
-body.page-references .medicine-reference {
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,.15);
-}
+body.page-references .references-note { margin-block: 2rem; }
 body.page-references :target { scroll-margin-top: 1rem; }
 @media (max-width: 40rem) {
   body.page-references .site-header nav { width: 100%; min-width: 0; }
   body.page-references .site-header nav ul { width: 100%; }
   body.page-references .site-header nav a { overflow-wrap: anywhere; }
-  body.page-references .technical-definitions > div,
-  body.page-references .revision-list > div { grid-template-columns: 1fr; gap: .25rem; }
 }
