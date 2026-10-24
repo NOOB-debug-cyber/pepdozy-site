@@ -1,6 +1,6 @@
 {
-  "version": "V18-local-candidate-references-single-list",
-  "approvedOn": null,
+  "version": "V19-pepdozy-1.1.4-build62",
+  "approvedOn": "2026-10-23",
   "files": [
     {
       "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
@@ -174,8 +174,8 @@
     },
     {
       "file": "assets/layout-v16.css",
-      "bytes": 3688,
-      "sha256": "734984ebdac44ed666e6cdd58ca5a65cb4b1d81e4164167a10900b59db076486"
+      "bytes": 3853,
+      "sha256": "65ada8cc2a7a9390a383bca14516a7d71229f795dfb46980a1746c3c19f40dc2"
     },
     {
       "file": "assets/references.css",
@@ -199,28 +199,28 @@
     },
     {
       "file": "index.html",
-      "bytes": 10365,
-      "sha256": "f331b649e73c54baf4b02136d1526a7a8409a38e2493da5d87ab74a2073aa69e"
+      "bytes": 9151,
+      "sha256": "b1e33e87b300b6f3727328ce79072277f51af2de21aa165a75dc24af91d8ef64"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 14970,
-      "sha256": "81efe87aa0d17ce72e5d70bea6c278111015b66e95396511e1a03e15a803cc6b"
+      "bytes": 14426,
+      "sha256": "694b17047a0286a0ac3e02f40b5e2b5d56be75235b53d3da94e9964df338de3f"
     },
     {
       "file": "referencias/index.html",
-      "bytes": 5144,
-      "sha256": "8208c4870002a61bd5d7a0c04ab0aa6731c4a96937c826f47015b49b40c4e545"
+      "bytes": 3645,
+      "sha256": "f2d78d7288e044d901e692c02e82fcb385dd7ea0e43dd01fb3fdde459bc05741"
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8569,
-      "sha256": "ed0e2342dca2a4815e537fb3b3336e26d3a8e0d9d7e0ce7869cfef56b421be0d"
+      "bytes": 8825,
+      "sha256": "1dcc400c1c683fe0773d68326f0f91ad4cdf2837fec538c029b5ec60b623ca4c"
     },
     {
       "file": "termos/index.html",
-      "bytes": 15154,
-      "sha256": "481570be52914ad1828166693d3ff35fe9345169a501e82e1e2ab6453041939b"
+      "bytes": 14712,
+      "sha256": "a2d998cbfc950494ba8f5a6d4c19c1c919fe8778cceefdc2a7e8dbf7d69623c2"
     }
   ],
   "correction": {
@@ -256,15 +256,24 @@
     "legalStatus": "Aprovada para integração; deploy condicionado à consolidação do Meu Diário no mesmo lote.",
     "visualAssets": "Imagens V16 e páginas não relacionadas preservadas."
   },
-  "status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+  "build62CompatibilityRevision": {
+    "date": "2026-10-23",
+    "version": "1.1.4",
+    "build": 62,
+    "scope": "Compatibilização factual das cinco páginas com o PepDozy 1.1.4: nome visível PepDozy, posicionamento amplo de registro pessoal, GLP-1 como módulo opcional, histórico descritivo sem curva de quantidade estimada ou cálculo de estoque, e quantidades alimentares em unidade, gramas ou mililitros quando disponíveis.",
+    "privacy": "Dados legados de estoque permanecem documentados como preservação local e em backup, sem tela ou novo cálculo; cálculos descritivos ordinários permanecem explicitados.",
+    "visualAssets": "Imagem da curva removida do topo; espaço reservado preservado e demais imagens existentes mantidas.",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
+  },
+  "status": "APPROVED_FOR_PUBLICATION",
   "referencesListRevision": {
     "date": "2026-10-22",
     "baseCommit": "469df5a11ef8ab1f1d1c6dceb1af37b4bd67e431",
-    "scope": "Uma lista única com os 17 links informativos remanescentes, em lugar dos cartões e da prosa indicada. Exclusão editorial de 6 bulas FDA, 4 estudos de contexto e 1 notícia Anvisa; URLs e rótulos restantes preservados.",
-    "legacyAnchors": "IDs anteriores preservados discretamente na lista; acrescentado medicamentos para compatibilidade com o app.",
-    "introduction": "Descrição de biblioteca de fontes, sem afirmar alteração da versão pública do aplicativo.",
-    "visualAssets": "Sem alteração de imagens, fontes, identidade, header/footer ou outras páginas.",
-    "approvalStatus": "Candidata local; revisão e publicação não comprovadas por este manifesto.",
-    "publicationStatus": "NOT_PUBLISHED_BY_THIS_TASK"
+    "scope": "Uma lista única com os 8 links informativos remanescentes. Foram retiradas 19 referências ligadas à curva, à farmacocinética, a produtos ou marcas farmacêuticas e aos estudos de contexto antes exibidos, além do link NIDDK — The A1C Test and Diabetes, retirado por solicitação do usuário.",
+    "legacyAnchors": "Preservadas as quatro âncoras atualmente usadas pelo aplicativo: medicamentos, glicemia, nutricao e peso-metas-atividade.",
+    "introduction": "Descrição limitada às fontes que permanecem úteis para alimentação, peso, atividade e registros de glicemia.",
+    "visualAssets": "Estrutura visual da lista preservada; header e footer alinhados ao nome PepDozy.",
+    "approvalStatus": "Revisão aprovada pelo proprietário em 23 de outubro de 2026. Este manifesto registra a aprovação; a publicação exige conferência do deploy e do conteúdo público.",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
   }
 }

@@ -11,6 +11,15 @@ const REMOVED_REFERENCE_URLS = Object.freeze([
   'https://doi.org/10.1016/S0140-6736(19)31149-3',
   'https://doi.org/10.1056/NEJMoa1411892',
   'https://www.gov.br/anvisa/en/updates/anvisa-approves-the-first-synthetic-semaglutide-pen-for-diabetes-an-analog-product-of-ozempic',
+  'https://doi.org/10.1007/BF02353538',
+  'https://pubmed.ncbi.nlm.nih.gov/37594592/',
+  'https://doi.org/10.1002/psp4.13099',
+  'https://doi.org/10.1007/s13300-019-0581-y',
+  'https://doi.org/10.1007/s40262-015-0338-3',
+  'https://pmc.ncbi.nlm.nih.gov/articles/PMC5069304/',
+  'https://doi.org/10.1177/0091270009354996',
+  'https://doi.org/10.1007/s00125-001-0719-z',
+  'https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test',
 ]);
 
 function checkReferencesContract(references, baseline, check) {
@@ -20,7 +29,7 @@ function checkReferencesContract(references, baseline, check) {
   const main = part(references, 'main');
   const originalLinks = links(baseline);
   const expected = originalLinks.filter(link => !REMOVED_REFERENCE_URLS.includes(link.href));
-  check(originalLinks.length === 28 && expected.length === 17, 'Base deve conter 28 links e preservar exatamente 17');
+  check(originalLinks.length === 28 && expected.length === 8, 'Base deve conter 28 links e preservar exatamente 8');
   check(REMOVED_REFERENCE_URLS.every(url => originalLinks.some(link => link.href === url)), 'URL de exclusão não encontrada na base Git');
   for (const url of REMOVED_REFERENCE_URLS) check(!references.includes(url), `URL excluída reapareceu: ${url}`);
   check(!/Mounjaro|Ozempic|Wegovy|Trulicity|Victoza|Saxenda|Ozivy/i.test(references), 'Marca editorialmente retirada reapareceu');
@@ -32,7 +41,7 @@ function checkReferencesContract(references, baseline, check) {
   const list = lists[0]?.[0] || '';
   const listInner = lists[0]?.[2] || '';
   const items = [...listInner.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)];
-  check(items.length === 17, 'Lista única deve conter 17 links independentes');
+  check(items.length === 8, 'Lista única deve conter 8 links independentes');
   check(listInner.replace(/<li\b[^>]*>[\s\S]*?<\/li>/g, '').trim() === '', 'Conteúdo fora dos itens da lista');
   check(JSON.stringify(links(list)) === JSON.stringify(expected), 'Links permitidos e textos devem ser idênticos à base Git, na mesma ordem');
   check(JSON.stringify(links(main)) === JSON.stringify(links(list)), 'Fonte externa fora da lista única');
@@ -41,20 +50,17 @@ function checkReferencesContract(references, baseline, check) {
       .replace(/<a\b[^>]*>[\s\S]*?<\/a>/g, '').trim();
     check(remaining === '' && links(item[1]).length === 1, 'Cada item deve conter só o link e âncoras discretas, sem prosa');
   }
-  const legacyIds = [...baseline.matchAll(/\bid="([^\"]+)"/g)].map(match => match[1]).filter(id => id !== 'conteudo');
-  for (const id of [...legacyIds, 'medicamentos']) {
-    check(new RegExp(`<(?:li|span)\\b[^>]*\\bid="${id}"`).test(list), `Âncora legada/app ausente da lista: ${id}`);
+  for (const id of ['medicamentos', 'glicemia', 'nutricao', 'peso-metas-atividade']) {
+    check(new RegExp(`<(?:li|span)\\b[^>]*\\bid="${id}"`).test(main), `Âncora usada pelo app ausente: ${id}`);
   }
   const ids = [...references.matchAll(/\bid="([^\"]+)"/g)].map(match => match[1]);
   check(new Set(ids).size === ids.length, 'IDs das referências não podem ser duplicados');
-  for (const tag of ['header', 'h1', 'footer']) check(part(references, tag) === part(baseline, tag), `${tag} das referências alterado`);
   const intro = main.slice(0, main.indexOf('<section'));
   const description = references.match(/<meta name="description" content="([^\"]*)"/)?.[1] || '';
   check(!!description && /Fontes informativas/.test(description), 'Meta deve descrever fontes informativas');
   check(!/estimativ|modelo|curva|parâmetro/i.test(intro + description), 'Introdução/meta não podem afirmar modelo ou curva ativos');
-  const originalNote = baseline.match(/<div class="notice">\s*<p>([\s\S]*?)<\/p>\s*<\/div>/)?.[1];
   const note = references.match(/<p class="references-note">([\s\S]*?)<\/p>/)?.[1];
-  check(!!originalNote && note === originalNote, 'Nota informativa final deve conservar o texto original');
+  check(!!note && /catálogo e os resumos descritivos/.test(note), 'Nota informativa final incompatível');
   check(main.indexOf('class="references-note"') > main.indexOf('</section>'), 'Nota deve vir após a lista, sem cartão extra');
   for (const removed of [
     'Discute limitações do modelo; não valida as curvas individuais do aplicativo.',
@@ -81,7 +87,7 @@ const files = new Set(manifest.files.map(item => item.file));
 let checks = 0;
 const check = (condition, message) => { assert(condition, message); checks++; };
 
-// O inventário identifica os bytes da candidata local; não comprova publicação.
+// O inventário identifica os bytes da revisão aprovada; não comprova publicação.
 // Também não admite referências quebradas ou caminhos locais do computador.
 for (const item of manifest.files) {
   check(!path.isAbsolute(item.file) && !item.file.split('/').includes('..'), `Caminho inválido: ${item.file}`);
@@ -99,7 +105,7 @@ function resolveReference(from, reference) {
   check(fs.existsSync(path.join(root, file)), `Referência ausente: ${from} -> ${reference}`);
   if (fs.statSync(path.join(root, file)).isDirectory()) file = path.join(file, 'index.html');
   if (anchor && file.endsWith('.html')) check(read(file).includes(`id="${anchor}"`), `Âncora ausente: ${reference}`);
-  check(files.has(file), `Recurso não consta no inventário da candidata: ${file}`);
+  check(files.has(file), `Recurso não consta no inventário da revisão: ${file}`);
 }
 
 for (const file of routes) {
@@ -108,8 +114,8 @@ for (const file of routes) {
   check(/<html lang="pt-BR">/.test(html), `Idioma: ${file}`);
   check((html.match(/<h1\b/g) || []).length === 1, `Título principal: ${file}`);
   check((html.match(/class="brand__logo"/g) || []).length === 1, `Logo: ${file}`);
-  check(!/PepDozy(?!™)/.test(text), `Marca sem ™: ${file}`);
-  check(!/PepDozy®|™™/.test(text), `Marca inconsistente: ${file}`);
+  check(text.includes('PepDozy'), `Nome do aplicativo ausente: ${file}`);
+  check(!/PepDozy™|PepDozy®|PepDozy:\s*GLP-1|Pep12/.test(text), `Nome anterior ou divergente presente: ${file}`);
   check(!/\/Users\/|localhost|127\.0\.0\.1|file:\/\//.test(html), `Caminho privado: ${file}`);
   check(!/<script\b|<iframe\b|<form\b|\son[a-z]+\s*=/i.test(html), `Coleta/script inesperado: ${file}`);
   check(html.includes(`class="${file.startsWith('termos/') ? 'theme-light' : 'theme-dark'}`), `Tema: ${file}`);
@@ -139,8 +145,16 @@ for (const [name, column] of [['privacy', 1], ['terms', 2], ['references', 3], [
   check(homeLayout.includes(`.destination--${name} { grid-column: ${column}; grid-row: 1; }`), `Posição desktop divergente: ${name}`);
 }
 check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidratação reintroduzida em Uso e licença');
-check(read('termos/index.html').includes('Não mede a concentração no sangue, não representa todo o medicamento presente no corpo e não prevê sua resposta individual ao tratamento.'), 'Limite de uso estimativo removido');
+check(read('termos/index.html').includes('O app não estima quantidade de medicamento no organismo nem calcula estoque.'), 'Remoção da estimativa e do estoque ausente nos Termos');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
+const privacy = read('privacidade/index.html');
+check(!privacy.includes('Alterações desta política'), 'Tópico excluído reapareceu na Privacidade');
+for (const removed of ['Mudanças materiais sobre coleta', 'A revisão de <strong>17 de setembro de 2026', 'A revisão editorial de <strong>19 de setembro de 2026', 'A revisão editorial de <strong>23 de outubro de 2026']) {
+  check(!privacy.includes(removed), 'Conteúdo do tópico excluído reapareceu na Privacidade');
+}
+const privacyNumbers = [...privacy.matchAll(/<h2\b[^>]*>(\d+)\./g)].map(match => Number(match[1]));
+check(JSON.stringify(privacyNumbers) === JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]), 'Numeração da Privacidade deve ser sequencial de 1 a 9');
+check(privacy.includes('<h2>9. Contato</h2>'), 'Contato deve ser o tópico 9 da Privacidade');
 check(read('suporte/index.html').includes('mailto:'), 'Contato de suporte ausente');
 for (const file of ['suporte/index.html', 'privacidade/index.html', 'termos/index.html']) {
   check(read(file).includes('mailto:pepdozy@gmail.com'), `Contato oficial ausente: ${file}`);
@@ -151,20 +165,23 @@ const { execFileSync } = require('node:child_process');
 const baselineReferences = execFileSync('git', ['show', REFERENCES_BASE_REVISION + ':referencias/index.html'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
 checkReferencesContract(references, baselineReferences, check);
-for (const route of routes.filter(file => file !== 'referencias/index.html')) {
-  const original = execFileSync('git', ['show', REFERENCES_BASE_REVISION + ':' + route], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
-  check(read(route) === original, 'Página fora do escopo foi alterada: ' + route);
-}
-check(manifest.approvedOn === null && manifest.status === 'LOCAL_CANDIDATE_NOT_PUBLISHED', 'Manifesto deve declarar candidata local, sem aprovação/publicação');
+check(manifest.approvedOn === '2026-10-23' && manifest.status === 'APPROVED_FOR_PUBLICATION', 'Manifesto deve registrar a aprovação de 23/10/2026, sem antecipar o resultado da publicação');
 check(manifest.referencesListRevision?.baseCommit === REFERENCES_BASE_REVISION, 'Base Git da revisão de referências divergente');
+check(manifest.build62CompatibilityRevision?.version === '1.1.4' && manifest.build62CompatibilityRevision?.build === 62, 'Identidade da revisão Build 62 divergente');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
 const terms = read('termos/index.html');
 const paletteCss = read('assets/terms-palette.css');
-const sha256 = text => crypto.createHash('sha256').update(text).digest('hex');
-check(sha256(terms.match(/<figure[\s\S]*?<\/figure>/)[0]) === 'cd1acfcd0ad332c7b2ef225f75a1b57dca0a1f7a8c7319ce302b55d5cd2a63c6', 'Aparelhos/card dos Termos alterados');
-check(home.includes('Sua jornada com GLP-1, registrada no seu ritmo.'), 'Proposta principal ausente');
+check(/uso-licenca-phones-v13-1086\.png/.test(terms) && /termos-sem-prescricao-v14\.png/.test(terms), 'Aparelhos/card dos Termos ausentes');
+check(home.includes('Sua rotina, registrada no seu ritmo.'), 'Proposta principal ampla ausente');
+check(home.includes('<strong>O módulo de GLP-1 é opcional.</strong>'), 'Caráter opcional do módulo de GLP-1 ausente');
+check(!home.includes('home-aplicacoes-decaimento-v16'), 'Imagem antiga da curva reapareceu na Home');
+check(!home.includes('tratamento com tirzepatida'), 'Narrativa centrada em molécula reapareceu na Home');
+check(read('privacidade/index.html').includes('campos legados de estoque'), 'Preservação de dados legados não documentada');
+check(read('privacidade/index.html').includes('não possui a curva de quantidade estimada nem a tela de estoque'), 'Redução do módulo opcional não documentada na Privacidade');
+check(read('suporte/index.html').includes('O que mudou na versão 1.1.4'), 'Mudanças da versão ausentes no Suporte');
+check(!references.includes('historico-de-revisoes'), 'Âncora do histórico removido reapareceu nas Referências');
 check(home.includes('Textos armazenados localmente no iPhone, sem envio automático a serviços externos.'), 'Privacidade abrangente ausente na Home');
 check(!references.includes('As retas opcionais são regressões lineares descritivas separadas por contexto'), 'Descrição removida de regressões presente nas Referências');
 check(!/em desenvolvimento|em testes|em breve|quando (?:o )?Meu Diário for/i.test(home + terms + read('privacidade/index.html')), 'Condicional de disponibilidade presente');
@@ -214,7 +231,7 @@ for (const chapter of chapterRules) {
   }
   check(contrast(color(chapter, '--chapter-heading'), background) >= 4.5, `Contraste do título sobre ${background}`);
 }
-console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos inventariados na candidata local`);
+console.log(`PASS: ${checks} verificações; ${routes.length} páginas; ${manifest.files.length} arquivos inventariados na revisão aprovada`);
 }
 
 if (require.main === module) runSiteChecks();
