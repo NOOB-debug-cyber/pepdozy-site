@@ -1,6 +1,6 @@
 {
-  "version": "V19-pepdozy-1.1.4-build62",
-  "approvedOn": "2026-10-23",
+  "version": "V20-pepdozy-1.1.5-build67",
+  "approvedOn": "2026-11-01",
   "files": [
     {
       "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
@@ -199,13 +199,13 @@
     },
     {
       "file": "index.html",
-      "bytes": 9151,
-      "sha256": "b1e33e87b300b6f3727328ce79072277f51af2de21aa165a75dc24af91d8ef64"
+      "bytes": 9314,
+      "sha256": "917199bd5613ec8b53e679ff6e768ec0085b4aac9ffce3b5c1357aa4798f8016"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 14426,
-      "sha256": "694b17047a0286a0ac3e02f40b5e2b5d56be75235b53d3da94e9964df338de3f"
+      "bytes": 15926,
+      "sha256": "5e503016d4146b3e630175bda1350bd404ecd88018116272c81d6dac04e560d2"
     },
     {
       "file": "referencias/index.html",
@@ -214,13 +214,13 @@
     },
     {
       "file": "suporte/index.html",
-      "bytes": 8825,
-      "sha256": "1dcc400c1c683fe0773d68326f0f91ad4cdf2837fec538c029b5ec60b623ca4c"
+      "bytes": 9529,
+      "sha256": "15413d245b29ee3cc665c044cf54eea20513022edadfae41a63040f840b041d0"
     },
     {
       "file": "termos/index.html",
-      "bytes": 14712,
-      "sha256": "a2d998cbfc950494ba8f5a6d4c19c1c919fe8778cceefdc2a7e8dbf7d69623c2"
+      "bytes": 15905,
+      "sha256": "83d7a6c14956a2b090d24efd7c058eca8ba6fd189a8c5ef09e0610fc158c00d0"
     }
   ],
   "correction": {
@@ -274,6 +274,24 @@
     "introduction": "Descrição limitada às fontes que permanecem úteis para alimentação, peso, atividade e registros de glicemia.",
     "visualAssets": "Estrutura visual da lista preservada; header e footer alinhados ao nome PepDozy.",
     "approvalStatus": "Revisão aprovada pelo proprietário em 23 de outubro de 2026. Este manifesto registra a aprovação; a publicação exige conferência do deploy e do conteúdo público.",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
+  },
+  "build67CompatibilityRevision": {
+    "date": "2026-11-01",
+    "version": "1.1.5",
+    "build": 67,
+    "productCommit": "f8e5aff34194920c5376103465250c3cbfe321ae",
+    "siteBase": "fddad53c9f3f555cb9707f088f292b8f1eee2b21",
+    "approvedPreviewPatchSHA256": "98bd489524d020aea7b268942e3e5d3d32f8fcbb663276f4d4b59ffa2ac4b8b4",
+    "pages": [
+      "index.html",
+      "privacidade/index.html",
+      "suporte/index.html",
+      "termos/index.html"
+    ],
+    "scope": "Descrição das funções da versão 1.1.5 nas páginas Início, Privacidade, Uso e licença e Suporte. Na Home, chamadas sobre a rotina e dois cards de metas e atividades.",
+    "editorialLabel": "Última atualização editorial",
+    "referencesSHA256": "f2d78d7288e044d901e692c02e82fcb385dd7ea0e43dd01fb3fdde459bc05741",
     "publicationStatus": "APPROVED_FOR_PUBLICATION"
   }
 }

@@ -138,14 +138,15 @@ for (const file of routes) {
 const home = read('index.html');
 const homeLayout = read('assets/layout-v16.css');
 check(!home.includes('class="goal-card"'), 'Meta antiga acima das tiles');
-check((home.match(/class="feature-card(?: |")/g) || []).length === 3, 'Quantidade de cards da Home');
+check((home.match(/class="feature-card(?: |")/g) || []).length === 2, 'A Home deve mostrar os dois cards aprovados');
+check(home.includes('metas-v15.png') && home.includes('atividade-consistencia-v16.png') && !home.includes('aplicacoes-organizadas-v16'), 'Cards de metas e atividades ou remoção do card de aplicações divergentes');
 check(home.indexOf('class="feature-cards"') > home.indexOf('destination--terms'), 'Posição dos cards da Home');
 check(homeLayout.includes('grid-template-columns: repeat(4, minmax(0, 1fr))'), 'Grade desktop dos destinos não possui quatro colunas iguais');
 for (const [name, column] of [['privacy', 1], ['terms', 2], ['references', 3], ['support', 4]]) {
   check(homeLayout.includes(`.destination--${name} { grid-column: ${column}; grid-row: 1; }`), `Posição desktop divergente: ${name}`);
 }
 check(!/hidratacao|terms-closing-row/.test(read('termos/index.html')), 'Hidratação reintroduzida em Uso e licença');
-check(read('termos/index.html').includes('O app não estima quantidade de medicamento no organismo nem calcula estoque.'), 'Remoção da estimativa e do estoque ausente nos Termos');
+check(read('termos/index.html').includes('estimativa matemática de quantidade no organismo, separada por molécula e calculada a partir dos registros.') && read('termos/index.html').includes('O app não calcula estoque.'), 'Estimativa por molécula ou ausência de cálculo de estoque divergente nos Termos');
 check(read('privacidade/index.html').includes('GitHub'), 'Informação sobre hospedagem removida');
 const privacy = read('privacidade/index.html');
 check(!privacy.includes('Alterações desta política'), 'Tópico excluído reapareceu na Privacidade');
@@ -165,9 +166,11 @@ const { execFileSync } = require('node:child_process');
 const baselineReferences = execFileSync('git', ['show', REFERENCES_BASE_REVISION + ':referencias/index.html'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
 checkReferencesContract(references, baselineReferences, check);
-check(manifest.approvedOn === '2026-10-23' && manifest.status === 'APPROVED_FOR_PUBLICATION', 'Manifesto deve registrar a aprovação de 23/10/2026, sem antecipar o resultado da publicação');
+check(manifest.approvedOn === '2026-11-01' && manifest.status === 'APPROVED_FOR_PUBLICATION', 'Manifesto deve registrar a aprovação de 01/11/2026');
 check(manifest.referencesListRevision?.baseCommit === REFERENCES_BASE_REVISION, 'Base Git da revisão de referências divergente');
 check(manifest.build62CompatibilityRevision?.version === '1.1.4' && manifest.build62CompatibilityRevision?.build === 62, 'Identidade da revisão Build 62 divergente');
+check(manifest.build67CompatibilityRevision?.version === '1.1.5' && manifest.build67CompatibilityRevision?.build === 67, 'Identidade da revisão Build 67 divergente');
+check(crypto.createHash('sha256').update(references).digest('hex') === 'f2d78d7288e044d901e692c02e82fcb385dd7ea0e43dd01fb3fdde459bc05741', 'A página de Referências deve preservar os bytes aprovados');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
@@ -175,12 +178,16 @@ const terms = read('termos/index.html');
 const paletteCss = read('assets/terms-palette.css');
 check(/uso-licenca-phones-v13-1086\.png/.test(terms) && /termos-sem-prescricao-v14\.png/.test(terms), 'Aparelhos/card dos Termos ausentes');
 check(home.includes('Sua rotina, registrada no seu ritmo.'), 'Proposta principal ampla ausente');
-check(home.includes('<strong>O módulo de GLP-1 é opcional.</strong>'), 'Caráter opcional do módulo de GLP-1 ausente');
+check(!/GLP[\s‐‑–-]*1|medicamentos?|tirzepatida|semaglutida|liraglutida|dulaglutida|Mounjaro|Ozempic|Wegovy|Trulicity|Victoza|Saxenda|Ozivy/i.test(home), 'Chamadas da Home devem se concentrar na rotina e nos registros');
+check(terms.includes('módulo opcional de GLP-1') && privacy.includes('O módulo de GLP-1 é opcional.'), 'Caráter opcional do módulo ausente das páginas informativas');
 check(!home.includes('home-aplicacoes-decaimento-v16'), 'Imagem antiga da curva reapareceu na Home');
 check(!home.includes('tratamento com tirzepatida'), 'Narrativa centrada em molécula reapareceu na Home');
 check(read('privacidade/index.html').includes('campos legados de estoque'), 'Preservação de dados legados não documentada');
-check(read('privacidade/index.html').includes('não possui a curva de quantidade estimada nem a tela de estoque'), 'Redução do módulo opcional não documentada na Privacidade');
-check(read('suporte/index.html').includes('O que mudou na versão 1.1.4'), 'Mudanças da versão ausentes no Suporte');
+check(privacy.includes('uma estimativa matemática separada por molécula, calculada no aparelho a partir dos registros.') && privacy.includes('A tela de estoque continua ausente.'), 'Funcionamento da estimativa e ausência da tela de estoque devem constar na Privacidade');
+check(read('suporte/index.html').includes('Recursos da versão 1.1.5'), 'Mudanças da versão ausentes no Suporte');
+for (const page of [terms, privacy]) {
+  check(page.includes('<strong>Última atualização editorial:</strong> 1 de novembro de 2026') && !page.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
+}
 check(!references.includes('historico-de-revisoes'), 'Âncora do histórico removido reapareceu nas Referências');
 check(home.includes('Textos armazenados localmente no iPhone, sem envio automático a serviços externos.'), 'Privacidade abrangente ausente na Home');
 check(!references.includes('As retas opcionais são regressões lineares descritivas separadas por contexto'), 'Descrição removida de regressões presente nas Referências');
