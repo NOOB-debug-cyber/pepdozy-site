@@ -166,15 +166,23 @@ const { execFileSync } = require('node:child_process');
 const baselineReferences = execFileSync('git', ['show', REFERENCES_BASE_REVISION + ':referencias/index.html'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 check(home.includes('href="referencias/"'), 'Acesso às Referências técnicas ausente na Home');
 checkReferencesContract(references, baselineReferences, check);
-check(manifest.approvedOn === '2026-11-01' && manifest.status === 'APPROVED_FOR_PUBLICATION', 'Manifesto deve registrar a aprovação de 01/11/2026');
+check(manifest.approvedOn === '2026-11-03' && manifest.status === 'APPROVED_FOR_PUBLICATION', 'Manifesto deve registrar a aprovação de 03/11/2026');
 check(manifest.referencesListRevision?.baseCommit === REFERENCES_BASE_REVISION, 'Base Git da revisão de referências divergente');
 check(manifest.build62CompatibilityRevision?.version === '1.1.4' && manifest.build62CompatibilityRevision?.build === 62, 'Identidade da revisão Build 62 divergente');
 check(manifest.build67CompatibilityRevision?.version === '1.1.5' && manifest.build67CompatibilityRevision?.build === 67, 'Identidade da revisão Build 67 divergente');
+check(manifest.build68CompatibilityRevision?.version === '1.1.5' && manifest.build68CompatibilityRevision?.build === 68, 'Identidade da revisão Build 68 divergente');
+for (const file of ['index.html', 'suporte/index.html', 'termos/index.html']) {
+  check(!/Open Food Facts|Apple Intelligence|an[áa]lise (?:local|de foto|por foto)|por foto/i.test(read(file)), `Função retirada na Build 68 descrita em ${file}`);
+}
+check(privacy.includes('Esta versão não oferece análise de foto de alimento nem consulta externa de alimentos.'), 'Ausência das funções retiradas não declarada na Privacidade');
 check(crypto.createHash('sha256').update(references).digest('hex') === 'f2d78d7288e044d901e692c02e82fcb385dd7ea0e43dd01fb3fdde459bc05741', 'A página de Referências deve preservar os bytes aprovados');
 
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
 const terms = read('termos/index.html');
+for (const page of [privacy, terms]) {
+  check(page.includes('PepDozy 1.1.5 (68)') && !page.includes('1.1.5 (67)'), 'Identidade da versão divergente');
+}
 const paletteCss = read('assets/terms-palette.css');
 check(/uso-licenca-phones-v13-1086\.png/.test(terms) && /termos-sem-prescricao-v14\.png/.test(terms), 'Aparelhos/card dos Termos ausentes');
 check(home.includes('Sua rotina, registrada no seu ritmo.'), 'Proposta principal ampla ausente');
@@ -186,7 +194,7 @@ check(read('privacidade/index.html').includes('campos legados de estoque'), 'Pre
 check(privacy.includes('uma estimativa matemática separada por molécula, calculada no aparelho a partir dos registros.') && privacy.includes('A tela de estoque continua ausente.'), 'Funcionamento da estimativa e ausência da tela de estoque devem constar na Privacidade');
 check(read('suporte/index.html').includes('Recursos da versão 1.1.5'), 'Mudanças da versão ausentes no Suporte');
 for (const page of [terms, privacy]) {
-  check(page.includes('<strong>Última atualização editorial:</strong> 1 de novembro de 2026') && !page.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
+  check(page.includes('<strong>Última atualização editorial:</strong> 3 de novembro de 2026') && !page.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
 }
 check(!references.includes('historico-de-revisoes'), 'Âncora do histórico removido reapareceu nas Referências');
 check(home.includes('Textos armazenados localmente no iPhone, sem envio automático a serviços externos.'), 'Privacidade abrangente ausente na Home');

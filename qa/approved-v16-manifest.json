@@ -1,6 +1,6 @@
 {
-  "version": "V20-pepdozy-1.1.5-build67",
-  "approvedOn": "2026-11-01",
+  "version": "V21-pepdozy-1.1.5-build68",
+  "approvedOn": "2026-11-03",
   "files": [
     {
       "file": "assets/images/pepdozy-cards-v14/privacidade-registros-v14.avif",
@@ -199,13 +199,13 @@
     },
     {
       "file": "index.html",
-      "bytes": 9314,
-      "sha256": "917199bd5613ec8b53e679ff6e768ec0085b4aac9ffce3b5c1357aa4798f8016"
+      "bytes": 9074,
+      "sha256": "4484aa0febac5f4cb2ce903c7f18ab7b4a385aa5ec80919fd482526eb14c84d8"
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 15926,
-      "sha256": "5e503016d4146b3e630175bda1350bd404ecd88018116272c81d6dac04e560d2"
+      "bytes": 16216,
+      "sha256": "056051aa57d7336d51d1291a98cbfbe357d5c76103870d6864ac771b08fa2502"
     },
     {
       "file": "referencias/index.html",
@@ -214,13 +214,13 @@
     },
     {
       "file": "suporte/index.html",
-      "bytes": 9529,
-      "sha256": "15413d245b29ee3cc665c044cf54eea20513022edadfae41a63040f840b041d0"
+      "bytes": 9355,
+      "sha256": "ea9d95cf18d827dc1b45a3fb4fb6716e01773deab1d9bd62d9bf0a9c41b7016a"
     },
     {
       "file": "termos/index.html",
-      "bytes": 15905,
-      "sha256": "83d7a6c14956a2b090d24efd7c058eca8ba6fd189a8c5ef09e0610fc158c00d0"
+      "bytes": 15663,
+      "sha256": "c47b7ddc5315ed240e282f9e775cd3f3ec18f5719df1317e87c5b23b073c22ec"
     }
   ],
   "correction": {
@@ -292,6 +292,23 @@
     "scope": "Descrição das funções da versão 1.1.5 nas páginas Início, Privacidade, Uso e licença e Suporte. Na Home, chamadas sobre a rotina e dois cards de metas e atividades.",
     "editorialLabel": "Última atualização editorial",
     "referencesSHA256": "f2d78d7288e044d901e692c02e82fcb385dd7ea0e43dd01fb3fdde459bc05741",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
+  },
+  "build68CompatibilityRevision": {
+    "date": "2026-11-03",
+    "version": "1.1.5",
+    "build": 68,
+    "productCommit": "8901f4e3d9d38fc1efc0a3f0370396822847fd34",
+    "siteBase": "f3e9f4b",
+    "approvedPreviewPatchSHA256": "6424a8555db06b42a9df850350ae3fba941fa4cdcd2595883a440d9c30728c06",
+    "pages": [
+      "index.html",
+      "privacidade/index.html",
+      "suporte/index.html",
+      "termos/index.html"
+    ],
+    "scope": "Retirada da análise de foto de alimento e da consulta ao Open Food Facts das funções descritas; exportações com opção de senha e abertura de arquivo protegido; nota sobre versões de teste anteriores e registros antigos. Consentimento versão 6 preservado.",
+    "approval": "Prévia aprovada pelo proprietário em 3 de novembro de 2026, com a resposta \"Publicar o site\".",
     "publicationStatus": "APPROVED_FOR_PUBLICATION"
   }
 }
