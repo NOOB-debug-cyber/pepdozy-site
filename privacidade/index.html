@@ -29,8 +29,8 @@
     <p class="eyebrow">Documento público</p>
     <h1>Política de Privacidade</h1>
     <div class="meta">
-      <span><strong>Aplicativo:</strong> PepDozy 1.1.5 (67)</span>
-      <span><strong>Última atualização editorial:</strong> 1 de novembro de 2026</span>
+      <span><strong>Aplicativo:</strong> PepDozy 1.1.5 (68)</span>
+      <span><strong>Última atualização editorial:</strong> 3 de novembro de 2026</span>
       <span><strong>Revisão material publicada — consentimento versão 6:</strong> 17 de setembro de 2026</span>
     </div>
 
@@ -89,8 +89,8 @@
     <p>Para apresentar e administrar assinaturas, o app usa o StoreKit do iOS. O StoreKit se comunica diretamente com a Apple para consultar produtos, preços localizados, ofertas, elegibilidade e transações, além de comprar ou restaurar assinaturas.</p>
     <p>Essa comunicação não inclui os registros guardados pelo PepDozy. Dados de cartão e outros dados de pagamento não passam pelo app nem ficam disponíveis ao desenvolvedor. O PepDozy recebe do StoreKit apenas as informações de produto e transação necessárias para verificar o acesso aos recursos.</p>
     <p>O tratamento realizado pela Apple segue as políticas e os termos próprios da Apple.</p>
-    <p><strong>Alimentação por foto:</strong> em iPhones compatíveis, a análise usa o Apple Intelligence no aparelho e só começa quando você a solicita. O PepDozy não envia a foto a um servidor próprio nem a um serviço externo de análise. O resultado é uma sugestão: o alimento, a referência nutricional e a quantidade precisam ser revisados e confirmados antes de entrar no diário.</p>
-    <p><strong>Busca complementar de alimentos:</strong> quando faltar um alimento ou nutriente, você pode iniciar uma consulta ao Open Food Facts. Essa consulta envia o nome do alimento digitado ao serviço, sem enviar a foto. Ela depende de conexão e da disponibilidade da fonte; o resultado mantém sua origem para consulta.</p>
+    <p><strong>Alimentação:</strong> o registro de alimentos usa o catálogo no aparelho e os alimentos que você cadastra, sem consulta pela internet. Esta versão não oferece análise de foto de alimento nem consulta externa de alimentos. Câmera e Fotos servem apenas às fotos de progresso.</p>
+    <p><strong>Versões de teste anteriores:</strong> builds anteriores distribuídas pelo TestFlight ofereciam análise de foto no aparelho e consulta opcional ao Open Food Facts. Refeições antigas dessas origens continuam guardadas no aparelho e no backup manual, com a fonte indicada, e podem ser editadas ou apagadas. Linhas de catálogo pessoal já importadas ficam sem uso nesta versão e saem com “Apagar meus dados”.</p>
     <p><strong>Siri e Atalhos:</strong> as interações com a Siri dependem das configurações e dos serviços da Apple. O PepDozy recebe um rascunho de alimento, quantidade e unidade e permite abrir a revisão no app. O rascunho não é gravado automaticamente no diário.</p>
 
     <h2>5. Armazenamento, proteção e retenção</h2>
@@ -108,8 +108,8 @@
     </div>
     <ul>
       <li>O backup de registros pode ser exportado com ou sem senha. Com senha, é cifrado no aparelho com AES-256-GCM, usando uma chave derivada da senha. A senha não é armazenada e não pode ser recuperada.</li>
-      <li>Sem senha, o backup é legível. PDF, CSV e ZIP de fotos não são criptografados pelo PepDozy. Guarde e compartilhe esses arquivos somente em destinos de sua confiança.</li>
-      <li>As medições de glicemia manual, com data, horário e contexto, integram o backup de registros e, quando existirem medições realizadas válidas, a planilha <code>glicemia.csv</code> na exportação iniciada pelo usuário. A planilha é texto legível e não é criptografada pelo app.</li>
+      <li>Sem senha, o backup é legível. PDF, planilhas e pacote de fotos podem ser exportados como arquivo legível ou protegido por senha. O arquivo protegido é cifrado no aparelho com AES-256-GCM e abre em Menu &gt; Gerenciar meus dados &gt; Abrir arquivo protegido. A senha não é armazenada e não pode ser recuperada. O arquivo legível não é criptografado pelo PepDozy: guarde e compartilhe esses arquivos somente em destinos de sua confiança.</li>
+      <li>As medições de glicemia manual, com data, horário e contexto, integram o backup de registros e, quando existirem medições realizadas válidas, a planilha <code>glicemia.csv</code> na exportação iniciada pelo usuário. Na opção legível, a planilha é texto e não é criptografada pelo app.</li>
       <li>No PDF, a seção <strong>Glicemia registrada (mg/dL)</strong> vem <strong>desligada por padrão</strong> e só entra se o usuário a selecionar antes de exportar. Ela inclui as medições realizadas no período escolhido, com data, horário e contexto, e o resumo descritivo desses registros, sem interpretação clínica.</li>
       <li>O PDF reúne as seções de registros que você selecionar e pode apresentar contagem e datas das fotos, sem incluir as imagens. Exercícios, curva de quantidade estimada e saldo de estoque não integram esse relatório. As fotos têm exportação separada.</li>
       <li>Para preservar seus dados ao trocar, restaurar ou apagar o aparelho, use as opções de backup e exportação do próprio app e confira os arquivos no destino escolhido. As fotos têm exportação separada e não integram o backup de registros.</li>
