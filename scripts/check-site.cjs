@@ -205,8 +205,9 @@ check(!references.includes('As retas opcionais são regressões lineares descrit
 check(!/em desenvolvimento|em testes|em breve|quando (?:o )?Meu Diário for/i.test(home + terms + read('privacidade/index.html')), 'Condicional de disponibilidade presente');
 check(terms.includes('somente os registros que você selecionar'), 'Exportação seletiva ausente nos Termos');
 check(read('privacidade/index.html').includes('schema') === false, 'Detalhe técnico de schema exposto ao público');
-check(read('privacidade/index.html').includes('somente os registros selecionados pelo usuário'), 'Exportação seletiva ausente na Privacidade');
-check(read('privacidade/index.html').includes('Os textos do Meu Diário são armazenados localmente no iPhone e não são enviados automaticamente a serviços externos. O compartilhamento fica a critério do usuário.'), 'Privacidade abrangente ausente na Política');
+// Tom acolhedor de 12/11/2026: mesmos fatos, agora falando com você.
+check(read('privacidade/index.html').includes('somente os registros que você selecionar'), 'Exportação seletiva ausente na Privacidade');
+check(read('privacidade/index.html').includes('O que você escreve no Meu Diário fica guardado no seu iPhone e não é enviado automaticamente a nenhum serviço externo. Compartilhar é sempre uma escolha sua.'), 'Privacidade abrangente ausente na Política');
 check(read('privacidade/index.html').includes('A integração com o Apple Health solicita apenas permissão de leitura de peso e não escreve dados.'), 'Escopo do Apple Health ausente na Política');
 for (const file of routes) {
   check(!read(file).includes('Registros e fotos ficam fora do backup automático do iPhone.'), `Parágrafo proibido presente: ${file}`);

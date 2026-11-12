@@ -204,8 +204,8 @@
     },
     {
       "file": "privacidade/index.html",
-      "bytes": 16708,
-      "sha256": "3ca772182a6e061355098f1857704d0ead11039ca8cdcb50814e5b974b7eac87"
+      "bytes": 17210,
+      "sha256": "f7d723bf4ff0a35e0858c1340037eee3eaaf62db7e56dffd3e65c2ec1e05dfce"
     },
     {
       "file": "referencias/index.html",
@@ -322,6 +322,18 @@
     ],
     "scope": "Somente a Política de Privacidade: identidade PepDozy 1.1.6 (70), consentimento versão 7 de 8 de novembro de 2026 e seções do PDF (glicemia, resumo alimentar, gráficos de alimentação e metas informadas) ligadas por padrão, cada uma podendo ser desligada antes de exportar. Início, Uso e licença, Suporte e Referências sem alteração.",
     "approval": "Atualização feita por instrução expressa do proprietário em 12 de novembro de 2026: \"a política do site lá no site mesmo da web, você vai atualizar. Por instrução expressa minha\".",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
+  },
+  "build70PrivacyToneRevision": {
+    "date": "2026-11-12",
+    "version": "1.1.6",
+    "build": 70,
+    "siteBase": "b297536",
+    "pages": [
+      "privacidade/index.html"
+    ],
+    "scope": "Reescrita da Política de Privacidade em linguagem acolhedora, falando diretamente com a pessoa, sem retirar nem alterar fatos, permissões, limites, avisos ou dados descritos. Títulos de algumas seções ficaram mais próximos; numeração, âncoras, imagens e links não mudam.",
+    "approval": "Pedido expresso do proprietário em 12 de novembro de 2026: deixar a Política \"numa pegada mais humanizada\", \"acolhedora\", e publicar; confirmado com \"Prossiga com a implementação\".",
     "publicationStatus": "APPROVED_FOR_PUBLICATION"
   }
 }
