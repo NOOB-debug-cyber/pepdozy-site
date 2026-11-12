@@ -180,9 +180,13 @@ check(crypto.createHash('sha256').update(references).digest('hex') === 'f2d78d72
 // A revisão editorial de 15/10/2026 foi aprovada para integração; os testes
 // verificam os fatos técnicos e os limites antes do deploy coordenado.
 const terms = read('termos/index.html');
-for (const page of [privacy, terms]) {
-  check(page.includes('PepDozy 1.1.5 (68)') && !page.includes('1.1.5 (67)'), 'Identidade da versão divergente');
-}
+// Em 12/11/2026 só a Política passou para a 1.1.6 (70) e o consentimento v7,
+// por instrução expressa do proprietário; Uso e licença segue na 1.1.5 (68).
+check(terms.includes('PepDozy 1.1.5 (68)') && !terms.includes('1.1.5 (67)'), 'Identidade da versão divergente nos Termos');
+check(privacy.includes('PepDozy 1.1.6 (70)') && !privacy.includes('1.1.5 (68)'), 'Identidade da versão divergente na Privacidade');
+check(privacy.includes('consentimento versão 7') && !privacy.includes('consentimento versão 6'), 'Versão do consentimento divergente na Privacidade');
+check(privacy.includes('vêm <strong>ligadas por padrão</strong>') && !privacy.includes('desligada por padrão'), 'Padrão das seções do PDF divergente da 1.1.6');
+check(manifest.build70PrivacyRevision?.version === '1.1.6' && manifest.build70PrivacyRevision?.build === 70, 'Identidade da revisão da Política Build 70 divergente');
 const paletteCss = read('assets/terms-palette.css');
 check(/uso-licenca-phones-v13-1086\.png/.test(terms) && /termos-sem-prescricao-v14\.png/.test(terms), 'Aparelhos/card dos Termos ausentes');
 check(home.includes('Sua rotina, registrada no seu ritmo.'), 'Proposta principal ampla ausente');
@@ -193,9 +197,8 @@ check(!home.includes('tratamento com tirzepatida'), 'Narrativa centrada em molé
 check(read('privacidade/index.html').includes('campos legados de estoque'), 'Preservação de dados legados não documentada');
 check(privacy.includes('uma estimativa matemática separada por molécula, calculada no aparelho a partir dos registros.') && privacy.includes('A tela de estoque continua ausente.'), 'Funcionamento da estimativa e ausência da tela de estoque devem constar na Privacidade');
 check(read('suporte/index.html').includes('Recursos da versão 1.1.5'), 'Mudanças da versão ausentes no Suporte');
-for (const page of [terms, privacy]) {
-  check(page.includes('<strong>Última atualização editorial:</strong> 3 de novembro de 2026') && !page.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
-}
+check(terms.includes('<strong>Última atualização editorial:</strong> 3 de novembro de 2026') && !terms.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
+check(privacy.includes('<strong>Última atualização editorial:</strong> 12 de novembro de 2026') && !privacy.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
 check(!references.includes('historico-de-revisoes'), 'Âncora do histórico removido reapareceu nas Referências');
 check(home.includes('Textos armazenados localmente no iPhone, sem envio automático a serviços externos.'), 'Privacidade abrangente ausente na Home');
 check(!references.includes('As retas opcionais são regressões lineares descritivas separadas por contexto'), 'Descrição removida de regressões presente nas Referências');
