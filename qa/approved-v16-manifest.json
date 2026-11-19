@@ -200,7 +200,7 @@
     {
       "file": "index.html",
       "bytes": 9074,
-      "sha256": "4484aa0febac5f4cb2ce903c7f18ab7b4a385aa5ec80919fd482526eb14c84d8"
+      "sha256": "ac3bfeff5bfc5ff6258a5fd7c507a6bd3cd52668aa90e6b0b80800865ab2d1b3"
     },
     {
       "file": "privacidade/index.html",
@@ -214,13 +214,13 @@
     },
     {
       "file": "suporte/index.html",
-      "bytes": 9355,
-      "sha256": "ea9d95cf18d827dc1b45a3fb4fb6716e01773deab1d9bd62d9bf0a9c41b7016a"
+      "bytes": 9579,
+      "sha256": "10fe76d024c5e36d4c74381b1614f898ded3009b97bc2de05b60565b628376ba"
     },
     {
       "file": "termos/index.html",
-      "bytes": 15663,
-      "sha256": "c47b7ddc5315ed240e282f9e775cd3f3ec18f5719df1317e87c5b23b073c22ec"
+      "bytes": 15664,
+      "sha256": "59ec0e49ffc5282fd9db636b2eec36549115bdbe93dd9fb25305fda3af8e92bf"
     }
   ],
   "correction": {
@@ -334,6 +334,20 @@
     ],
     "scope": "Reescrita da Política de Privacidade em linguagem acolhedora, falando diretamente com a pessoa, sem retirar nem alterar fatos, permissões, limites, avisos ou dados descritos. Títulos de algumas seções ficaram mais próximos; numeração, âncoras, imagens e links não mudam.",
     "approval": "Pedido expresso do proprietário em 12 de novembro de 2026: deixar a Política \"numa pegada mais humanizada\", \"acolhedora\", e publicar; confirmado com \"Prossiga com a implementação\".",
+    "publicationStatus": "APPROVED_FOR_PUBLICATION"
+  },
+  "build70SiteRevision": {
+    "date": "2026-11-19",
+    "version": "1.1.6",
+    "build": 70,
+    "siteBase": "00ff10d",
+    "pages": [
+      "index.html",
+      "termos/index.html",
+      "suporte/index.html"
+    ],
+    "scope": "Início, Uso e licença e Suporte passam a citar a versão 1.1.6 (70), já publicada na App Store. Suporte ganha os itens da 1.1.6 (logo, cores, letra maior, botões e PDF com seções opcionais já marcadas). Demais textos, imagens e links sem alteração.",
+    "approval": "Ordem do proprietário em 19 de novembro de 2026: \"Site todo na 1.1.6\".",
     "publicationStatus": "APPROVED_FOR_PUBLICATION"
   }
 }
