@@ -182,7 +182,12 @@ check(crypto.createHash('sha256').update(references).digest('hex') === 'f2d78d72
 const terms = read('termos/index.html');
 // Em 12/11/2026 só a Política passou para a 1.1.6 (70) e o consentimento v7,
 // por instrução expressa do proprietário; Uso e licença segue na 1.1.5 (68).
-check(terms.includes('PepDozy 1.1.5 (68)') && !terms.includes('1.1.5 (67)'), 'Identidade da versão divergente nos Termos');
+// Em 19/11/2026 o site inteiro passou para a 1.1.6 (70), por ordem do proprietário.
+check(terms.includes('PepDozy 1.1.6 (70)') && !terms.includes('1.1.5 ('), 'Identidade da versão divergente nos Termos');
+for (const file of ['index.html', 'termos/index.html', 'suporte/index.html', 'privacidade/index.html']) {
+  check(!read(file).includes('versão 1.1.5'), `Página ainda descreve a 1.1.5: ${file}`);
+}
+check(manifest.build70SiteRevision?.version === '1.1.6' && manifest.build70SiteRevision?.build === 70, 'Identidade da revisão do site Build 70 divergente');
 check(privacy.includes('PepDozy 1.1.6 (70)') && !privacy.includes('1.1.5 (68)'), 'Identidade da versão divergente na Privacidade');
 check(privacy.includes('consentimento versão 7') && !privacy.includes('consentimento versão 6'), 'Versão do consentimento divergente na Privacidade');
 check(privacy.includes('vêm <strong>ligadas por padrão</strong>') && !privacy.includes('desligada por padrão'), 'Padrão das seções do PDF divergente da 1.1.6');
@@ -196,8 +201,8 @@ check(!home.includes('home-aplicacoes-decaimento-v16'), 'Imagem antiga da curva 
 check(!home.includes('tratamento com tirzepatida'), 'Narrativa centrada em molécula reapareceu na Home');
 check(read('privacidade/index.html').includes('campos legados de estoque'), 'Preservação de dados legados não documentada');
 check(privacy.includes('uma estimativa matemática separada por molécula, calculada no aparelho a partir dos registros.') && privacy.includes('A tela de estoque continua ausente.'), 'Funcionamento da estimativa e ausência da tela de estoque devem constar na Privacidade');
-check(read('suporte/index.html').includes('Recursos da versão 1.1.5'), 'Mudanças da versão ausentes no Suporte');
-check(terms.includes('<strong>Última atualização editorial:</strong> 3 de novembro de 2026') && !terms.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
+check(read('suporte/index.html').includes('Recursos da versão 1.1.6'), 'Mudanças da versão ausentes no Suporte');
+check(terms.includes('<strong>Última atualização editorial:</strong> 19 de novembro de 2026') && !terms.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
 check(privacy.includes('<strong>Última atualização editorial:</strong> 12 de novembro de 2026') && !privacy.includes('Revisão em prévia'), 'Rótulo editorial de publicação divergente');
 check(!references.includes('historico-de-revisoes'), 'Âncora do histórico removido reapareceu nas Referências');
 check(home.includes('Textos armazenados localmente no iPhone, sem envio automático a serviços externos.'), 'Privacidade abrangente ausente na Home');
